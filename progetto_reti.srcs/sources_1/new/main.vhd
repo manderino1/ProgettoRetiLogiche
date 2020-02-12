@@ -129,7 +129,7 @@ begin
                 end if;
             end loop;
             if wbPresent = '0' then
-                o_data <= '0' & STD_LOGIC_VECTOR(addr);
+                o_data <= STD_LOGIC_VECTOR(addr);
             else
                 -- 1 + WZ in binario + Offset in one hot
                 o_data <= '1' & wbBlock & wbOffset;
