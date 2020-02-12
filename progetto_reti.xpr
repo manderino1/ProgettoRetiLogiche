@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="44" Path="D:/Onedrive/OneDrive - Politecnico di Milano/Personale/progetto_reti/progetto_reti.xpr">
+<Project Version="7" Minor="44" Path="D:/Dynamis/ProgettoRetiLogiche/progetto_reti.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="2a1eee42548148f4a0f5d623932c4546"/>
