@@ -44,9 +44,21 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
-
+signal wb0, wb1, wb2, wb3, wb4, wb5, wb6, wb7 : STD_LOGIC_VECTOR(7 downto 0);
+signal wb0Init : STD_LOGIC := '0';
 begin
--- Processo di start
+    -- wb0 population
+    process (i_clk, wb0Init)
+    begin
+        if rising_edge(i_clk) and wb0Init = '0' then
+            o_en <= '1';
+            o_we <= '0';
+            o_address <= "0000000000000000";
+            wb0 <= i_data;
+        end if;
+    end process;
+    
+    -- Processo di start
     process(i_start)
         variable addr : unsigned(7 downto 0);
         variable wbPresent : STD_LOGIC;

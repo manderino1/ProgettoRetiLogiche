@@ -2,18 +2,24 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Wed Feb 12 13:39:37 2020
-# Process ID: 3144
+# Start of session at: Wed Feb 12 11:32:09 2020
+# Process ID: 7128
 # Current directory: D:/Dynamis/ProgettoRetiLogiche
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7412 D:\Dynamis\ProgettoRetiLogiche\progetto_reti.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13896 D:\Dynamis\ProgettoRetiLogiche\progetto_reti.xpr
 # Log file: D:/Dynamis/ProgettoRetiLogiche/vivado.log
 # Journal file: D:/Dynamis/ProgettoRetiLogiche\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project D:/Dynamis/ProgettoRetiLogiche/progetto_reti.xpr
+INFO: [Project 1-313] Project file moved from 'D:/Onedrive/OneDrive - Politecnico di Milano/Personale/progetto_reti' since last save.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Programmi/Xilinx/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 670.695 ; gain = 56.184
 update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 12 12:27:59 2020...
