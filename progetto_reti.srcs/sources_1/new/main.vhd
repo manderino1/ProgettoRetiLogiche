@@ -44,22 +44,60 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
-    type STATE_TYPE IS (A, B, C, D);  -- Define here the list of the states
-	signal current_state : STATE_TYPE;    -- Signal that contains the current state 							      
+    type STATE_TYPE IS (read_wb1, store_wb1_load_wb2, store_wb2_load_wb3);  -- Define here the list of the states
+	signal current_state : STATE_TYPE;    -- Signal that contains the current state
+	signal wb_load_done : STD_LOGIC := '0';
+	signal wb_addr_0, wb_addr_0_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_1, wb_addr_1_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_2, wb_addr_2_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_3, wb_addr_3_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_4, wb_addr_4_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_5, wb_addr_5_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_6, wb_addr_6_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_7, wb_addr_7_next : STD_LOGIC_VECTOR(7 downto 0);							      
 begin
     process(i_clk, i_rst)
     begin
         if i_rst = '1' then
             -- Reset all the port and signals to default state
+            current_state <= read_wb1;
+            o_en <= '0';
         elsif rising_edge(i_clk) then
             -- Defining all the state machine into this case
             -- Remember to cover all the case and assign the signal to the signal_next value
             case current_state is
-                when A =>
-                    -- Insert what happens if current_state is A
-                when B =>
-                    -- Insert what happens if current_state is B and so on
+                when read_wb1 =>
+                    -- Insert what happens if current_state is load_wb1, EXAMPLE STATE FOR TESTING
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000000";
+                    current_state <= store_wb1_load_wb2;
+                when store_wb1_load_wb2 =>
+                    -- EXAMPLE STATE FOR TESTING
+                    wb_addr_0_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000001";
+                    current_state <= store_wb2_load_wb3;
+                    o_data <= i_data;
+                when store_wb2_load_wb3 =>
+                    -- EXAMPLE STATE FOR TESTING
+                    wb_addr_0_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000010";
+                    o_data <= i_data;
             end case;
+            
+            -- Setting all registers to the next value
+            wb_addr_0 <= wb_addr_0_next;
+            wb_addr_1 <= wb_addr_1_next;
+            wb_addr_2 <= wb_addr_2_next;
+            wb_addr_3 <= wb_addr_3_next;
+            wb_addr_4 <= wb_addr_4_next;
+            wb_addr_5 <= wb_addr_5_next;
+            wb_addr_6 <= wb_addr_6_next;
+            wb_addr_7 <= wb_addr_7_next;
         end if;
     end process;
     
