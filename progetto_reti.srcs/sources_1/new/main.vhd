@@ -44,7 +44,8 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
-    type STATE_TYPE IS (read_wb1, store_wb1_load_wb2, store_wb2_load_wb3);  -- Define here the list of the states
+    type STATE_TYPE IS (read_wb0, store_wb0_load_wb1, store_wb1_load_wb2, store_wb2_load_wb3, 
+        store_wb3_load_wb4, store_wb4_load_wb5, store_wb5_load_wb6, store_wb6_load_wb7, store_wb7);  -- Define here the list of the states
 	signal current_state : STATE_TYPE;    -- Signal that contains the current state
 	signal wb_load_done : STD_LOGIC := '0';
 	signal wb_addr_0, wb_addr_0_next : STD_LOGIC_VECTOR(7 downto 0);
@@ -60,33 +61,65 @@ begin
     begin
         if i_rst = '1' then
             -- Reset all the port and signals to default state
-            current_state <= read_wb1;
+            current_state <= read_wb0; -- TESTING ONLY, LOADING WB ADDRESSES ON START
             o_en <= '0';
         elsif rising_edge(i_clk) then
             -- Defining all the state machine into this case
             -- Remember to cover all the case and assign the signal to the signal_next value
             case current_state is
-                when read_wb1 =>
-                    -- Insert what happens if current_state is load_wb1, EXAMPLE STATE FOR TESTING
+                when read_wb0 =>
+                    -- Insert what happens if current_state is load_wb1, and so on
                     o_en <= '1';
                     o_we <= '0';
                     o_address <= "0000000000000000";
-                    current_state <= store_wb1_load_wb2;
-                when store_wb1_load_wb2 =>
-                    -- EXAMPLE STATE FOR TESTING
+                    current_state <= store_wb0_load_wb1;
+                when store_wb0_load_wb1 =>
                     wb_addr_0_next <= i_data;
                     o_en <= '1';
                     o_we <= '0';
                     o_address <= "0000000000000001";
-                    current_state <= store_wb2_load_wb3;
-                    o_data <= i_data;
-                when store_wb2_load_wb3 =>
-                    -- EXAMPLE STATE FOR TESTING
-                    wb_addr_0_next <= i_data;
+                    current_state <= store_wb1_load_wb2;
+                when store_wb1_load_wb2 =>
+                    wb_addr_1_next <= i_data;
                     o_en <= '1';
                     o_we <= '0';
                     o_address <= "0000000000000010";
-                    o_data <= i_data;
+                    current_state <= store_wb2_load_wb3;
+                when store_wb2_load_wb3 =>
+                    wb_addr_2_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000011";
+                    current_state <= store_wb3_load_wb4;
+                when store_wb3_load_wb4 =>
+                    wb_addr_3_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000100";
+                    current_state <= store_wb4_load_wb5;
+                when store_wb4_load_wb5 =>
+                    wb_addr_4_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000101";
+                    current_state <= store_wb5_load_wb6;
+                when store_wb5_load_wb6 =>
+                    wb_addr_5_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000110";
+                    current_state <= store_wb6_load_wb7;
+                when store_wb6_load_wb7 =>
+                    wb_addr_6_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000111";
+                    current_state <= store_wb7;
+                when store_wb7 =>
+                    wb_addr_7_next <= i_data;
+                    o_en <= '0';
+                    o_we <= '0';
+                    wb_load_done <= '1';
             end case;
             
             -- Setting all registers to the next value
