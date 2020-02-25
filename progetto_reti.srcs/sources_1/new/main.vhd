@@ -44,8 +44,24 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
-
+    type STATE_TYPE IS (A, B, C, D);  -- Define here the list of the states
+	signal current_state : STATE_TYPE;    -- Signal that contains the current state 							      
 begin
-
-
+    process(i_clk, i_rst)
+    begin
+        if i_rst = '1' then
+            -- Reset all the port and signals to default state
+        elsif rising_edge(i_clk) then
+            -- Defining all the state machine into this case
+            -- Remember to cover all the case and assign the signal to the signal_next value
+            case current_state is
+                when A =>
+                    -- Insert what happens if current_state is A
+                when B =>
+                    -- Insert what happens if current_state is B and so on
+            end case;
+        end if;
+    end process;
+    
+    -- Here we can for example set up o_en to 1 if we are in the done state
 end Behavioral;
