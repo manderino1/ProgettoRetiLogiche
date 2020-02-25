@@ -86,7 +86,7 @@ test : process is
 begin 
     wait for 100 ns;
     wait for c_CLOCK_PERIOD;
-    tb_rst <= '1';
+    tb_rst <= '0';
     wait for c_CLOCK_PERIOD;
     tb_rst <= '0';
     wait for c_CLOCK_PERIOD;
