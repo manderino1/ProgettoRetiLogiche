@@ -45,9 +45,11 @@ end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
     type STATE_TYPE IS (read_wb0, store_wb0_load_wb1, store_wb1_load_wb2, store_wb2_load_wb3, 
-        store_wb3_load_wb4, store_wb4_load_wb5, store_wb5_load_wb6, store_wb6_load_wb7, store_wb7, wait_reading);  -- Define here the list of the states
+        store_wb3_load_wb4, store_wb4_load_wb5, store_wb5_load_wb6, store_wb6_load_wb7, store_wb7, wait_wb,
+        read_addr, wait_addr, process_addr, wait_for_start);  -- Define here the list of the states
 	signal current_state : STATE_TYPE := read_wb0;    -- Signal that contains the current state
 	signal wb_load_done : STD_LOGIC := '0';
+	signal start_to_be_processed : STD_LOGIC := '0';
 	signal wb_addr_0, wb_addr_0_next : STD_LOGIC_VECTOR(7 downto 0);
 	signal wb_addr_1, wb_addr_1_next : STD_LOGIC_VECTOR(7 downto 0);
 	signal wb_addr_2, wb_addr_2_next : STD_LOGIC_VECTOR(7 downto 0);
@@ -63,6 +65,7 @@ begin
             -- Reset all the port and signals to default state
             current_state <= read_wb0; -- TESTING ONLY, LOADING WB ADDRESSES ON START
             o_en <= '0';
+            wb_load_done <= '0';
         elsif rising_edge(i_clk) then
             -- Defining all the state machine into this case
             -- Remember to cover all the case and assign the signal to the signal_next value
@@ -72,8 +75,8 @@ begin
                     o_en <= '1';
                     o_we <= '0';
                     o_address <= "0000000000000000";
-                    current_state <= wait_reading;
-                when wait_reading =>
+                    current_state <= wait_wb;
+                when wait_wb =>
                     -- Insert what happens if current_state is load_wb1, and so on
                     o_address <= "0000000000000001";
                     current_state <= store_wb0_load_wb1;    
@@ -122,7 +125,22 @@ begin
                     wb_addr_7_next <= i_data;
                     o_en <= '0';
                     o_we <= '0';
-                    wb_load_done <= '1';
+                    current_state <= wait_for_start;
+                when read_addr =>
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000001000";
+                    current_state <= wait_addr;
+                when wait_addr =>
+                    current_state <= process_addr;
+                when process_addr =>
+                    -- Here we check if in wz and then publish the output
+                    start_to_be_processed <= '0';
+                    o_data <= i_data;
+                when wait_for_start =>
+                    if i_start = '1' then
+                        current_state <= read_addr;
+                    end if;
             end case;
             
             -- Setting all registers to the next value
@@ -136,6 +154,5 @@ begin
             wb_addr_7 <= wb_addr_7_next;
         end if;
     end process;
-    
     -- Here we can for example set up o_en to 1 if we are in the done state
 end Behavioral;
