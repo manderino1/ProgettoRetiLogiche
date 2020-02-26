@@ -49,7 +49,6 @@ architecture Behavioral of project_reti_logiche is
         read_addr, wait_addr, process_addr, wait_for_start);  -- Define here the list of the states
 	signal current_state : STATE_TYPE := read_wb0;    -- Signal that contains the current state
 	signal wb_load_done : STD_LOGIC := '0';
-	signal start_to_be_processed : STD_LOGIC := '0';
 	signal wb_addr_0, wb_addr_0_next : STD_LOGIC_VECTOR(7 downto 0);
 	signal wb_addr_1, wb_addr_1_next : STD_LOGIC_VECTOR(7 downto 0);
 	signal wb_addr_2, wb_addr_2_next : STD_LOGIC_VECTOR(7 downto 0);
@@ -135,8 +134,8 @@ begin
                     current_state <= process_addr;
                 when process_addr =>
                     -- Here we check if in wz and then publish the output
-                    start_to_be_processed <= '0';
-                    o_data <= i_data;
+                    -- PUT HERE ALL THE PROCESSING PART
+                    o_data <= i_data; -- JUST FOR TESTING
                 when wait_for_start =>
                     if i_start = '1' then
                         current_state <= read_addr;
