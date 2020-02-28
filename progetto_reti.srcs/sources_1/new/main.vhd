@@ -44,87 +44,194 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
-
+    type STATE_TYPE IS (read_wb0, store_wb0_load_wb1, store_wb1_load_wb2, store_wb2_load_wb3, 
+        store_wb3_load_wb4, store_wb4_load_wb5, store_wb5_load_wb6, store_wb6_load_wb7, store_wb7, wait_wb,
+        read_addr, wait_addr, process_addr, wait_for_start, write_addr, set_done);  -- Define here the list of the states
+	signal current_state : STATE_TYPE := read_wb0;    -- Signal that contains the current state
+	signal wb_load_done : STD_LOGIC := '0';
+	signal wb_addr_0, wb_addr_0_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_1, wb_addr_1_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_2, wb_addr_2_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_3, wb_addr_3_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_4, wb_addr_4_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_5, wb_addr_5_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_6, wb_addr_6_next : STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addr_7, wb_addr_7_next : STD_LOGIC_VECTOR(7 downto 0);							      
 begin
--- Processo di start
-    process(i_start)
-        variable addr : unsigned(7 downto 0);
-        variable wbPresent : STD_LOGIC;
-        variable wbBlock : STD_LOGIC_VECTOR(2 downto 0);
-        variable wbOffset : STD_LOGIC_VECTOR(3 downto 0);
+    process(i_clk, i_rst)
+    variable temp : UNSIGNED(63 downto 0);
     begin
-        if i_start = '0' then
-            o_done <= '0';
+        if i_rst = '1' then
+            -- Reset all the port and signals to default state
+            current_state <= read_wb0; -- TESTING ONLY, LOADING WB ADDRESSES ON START
+            o_en <= '0';
+            wb_load_done <= '0';
+        elsif rising_edge(i_clk) then
+            -- Defining all the state machine into this case
+            -- Remember to cover all the case and assign the signal to the signal_next value
+            case current_state is
+                when read_wb0 =>
+                    -- Insert what happens if current_state is load_wb1, and so on
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000000";
+                    current_state <= wait_wb;
+                when wait_wb =>
+                    -- Insert what happens if current_state is load_wb1, and so on
+                    o_address <= "0000000000000001";
+                    current_state <= store_wb0_load_wb1;    
+                when store_wb0_load_wb1 =>
+                    wb_addr_0_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000010";
+                    current_state <= store_wb1_load_wb2;
+                when store_wb1_load_wb2 =>
+                    wb_addr_1_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000011";
+                    current_state <= store_wb2_load_wb3;
+                when store_wb2_load_wb3 =>
+                    wb_addr_2_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000100";
+                    current_state <= store_wb3_load_wb4;
+                when store_wb3_load_wb4 =>
+                    wb_addr_3_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000101";
+                    current_state <= store_wb4_load_wb5;
+                when store_wb4_load_wb5 =>
+                    wb_addr_4_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000110";
+                    current_state <= store_wb5_load_wb6;
+                when store_wb5_load_wb6 =>
+                    wb_addr_5_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000000111";
+                    current_state <= store_wb6_load_wb7;
+                when store_wb6_load_wb7 =>
+                    wb_addr_6_next <= i_data;
+                    o_en <= '1';
+                    o_we <= '0';
+                    current_state <= store_wb7;
+                when store_wb7 =>
+                    wb_addr_7_next <= i_data;
+                    o_en <= '0';
+                    o_we <= '0';
+                    current_state <= wait_for_start;
+                when read_addr =>
+                    o_en <= '1';
+                    o_we <= '0';
+                    o_address <= "0000000000001000";
+                    current_state <= wait_addr;
+                when wait_addr =>
+                    current_state <= process_addr;
+                when process_addr =>
+                    -- Here we check if in wz and then publish the output
+                    -- PUT HERE ALL THE PROCESSING PART
+                    temp := UNSIGNED(wb_addr_0 & wb_addr_1 & wb_addr_2 & wb_addr_3 & wb_addr_4 & wb_addr_5 & wb_addr_6 & wb_addr_7);
+                    if i_data = std_logic_vector(temp(63 downto 56)) then
+                        o_data <= '1' & "000" & "0001";
+                    elsif i_data = std_logic_vector(temp(63 downto 56)+1) then
+                        o_data <= '1' & "000" & "0010";
+                    elsif i_data = std_logic_vector(temp(63 downto 56)+2) then
+                        o_data <= '1' & "000" & "0100";
+                    elsif i_data = std_logic_vector(temp(63 downto 56)+3) then
+                        o_data <= '1' & "000" & "1000";
+                    elsif i_data = std_logic_vector(temp(55 downto 48)) then
+                        o_data <= '1' & "001" & "0001";
+                    elsif i_data = std_logic_vector(temp(55 downto 48)+1) then
+                        o_data <= '1' & "001" & "0010";
+                    elsif i_data = std_logic_vector(temp(55 downto 48)+2) then
+                        o_data <= '1' & "001" & "0100";
+                    elsif i_data = std_logic_vector(temp(55 downto 48)+3) then
+                        o_data <= '1' & "001" & "1000";
+                    elsif i_data = std_logic_vector(temp(47 downto 40)) then
+                        o_data <= '1' & "010" & "0001";
+                    elsif i_data = std_logic_vector(temp(47 downto 40)+1) then
+                        o_data <= '1' & "010" & "0010";
+                    elsif i_data = std_logic_vector(temp(47 downto 40)+2) then
+                        o_data <= '1' & "010" & "0100";
+                    elsif i_data = std_logic_vector(temp(47 downto 40)+3) then
+                        o_data <= '1' & "010" & "1000";
+                    elsif i_data = std_logic_vector(temp(39 downto 32)) then
+                        o_data <= '1' & "011" & "0001";
+                    elsif i_data = std_logic_vector(temp(39 downto 32)+1) then
+                        o_data <= '1' & "011" & "0010";
+                    elsif i_data = std_logic_vector(temp(39 downto 32)+2) then
+                        o_data <= '1' & "011" & "0100";
+                    elsif i_data = std_logic_vector(temp(39 downto 32)+3) then
+                        o_data <= '1' & "011" & "1000";
+                    elsif i_data = std_logic_vector(temp(31 downto 24)) then
+                        o_data <= '1' & "100" & "0001";
+                    elsif i_data = std_logic_vector(temp(31 downto 24)+1) then
+                        o_data <= '1' & "100" & "0010";
+                    elsif i_data = std_logic_vector(temp(31 downto 24)+2) then
+                        o_data <= '1' & "100" & "0100";
+                    elsif i_data = std_logic_vector(temp(31 downto 24)+3) then
+                        o_data <= '1' & "100" & "1000";
+                    elsif i_data = std_logic_vector(temp(23 downto 16)) then
+                        o_data <= '1' & "101" & "0001";
+                    elsif i_data = std_logic_vector(temp(23 downto 16)+1) then
+                        o_data <= '1' & "101" & "0010";
+                    elsif i_data = std_logic_vector(temp(23 downto 16)+2) then
+                        o_data <= '1' & "101" & "0100";
+                    elsif i_data = std_logic_vector(temp(23 downto 16)+3) then
+                        o_data <= '1' & "101" & "1000";
+                    elsif i_data = std_logic_vector(temp(15 downto 8)) then
+                        o_data <= '1' & "110" & "0001";
+                    elsif i_data = std_logic_vector(temp(15 downto 8)+1) then
+                        o_data <= '1' & "110" & "0010";
+                    elsif i_data = std_logic_vector(temp(15 downto 8)+2) then
+                        o_data <= '1' & "110" & "0100";
+                    elsif i_data = std_logic_vector(temp(15 downto 8)+3) then
+                        o_data <= '1' & "110" & "1000";
+                    elsif i_data = std_logic_vector(temp(7 downto 0)) then
+                        o_data <= '1' & "111" & "0001";
+                    elsif i_data = std_logic_vector(temp(7 downto 0)+1) then
+                        o_data <= '1' & "111" & "0010";
+                    elsif i_data = std_logic_vector(temp(7 downto 0)+2) then
+                        o_data <= '1' & "111" & "0100";
+                    elsif i_data = std_logic_vector(temp(7 downto 0)+3) then
+                        o_data <= '1' & "111" & "1000";
+                    else
+                        o_data <= '0' & i_data(6 downto 0);
+                    end if;
+                    o_en <= '1';
+                    o_we <= '0';
+                    current_state <= write_addr;
+                when wait_for_start =>
+                    if i_start = '1' then
+                        o_done <= '0';
+                        current_state <= read_addr;
+                    end if;
+                when write_addr =>
+                    o_we <= '1';
+                    o_address <= "0000000000001001";
+                    current_state <= set_done;
+                when set_done =>
+                    o_we <= '0';
+                    o_done <= '1';
+                    current_state <= wait_for_start;
+            end case;
+            
+            -- Setting all registers to the next value
+            wb_addr_0 <= wb_addr_0_next;
+            wb_addr_1 <= wb_addr_1_next;
+            wb_addr_2 <= wb_addr_2_next;
+            wb_addr_3 <= wb_addr_3_next;
+            wb_addr_4 <= wb_addr_4_next;
+            wb_addr_5 <= wb_addr_5_next;
+            wb_addr_6 <= wb_addr_6_next;
+            wb_addr_7 <= wb_addr_7_next;
         end if;
-        if i_start = '1' then
-            wbPresent := '0';
-            o_en <= '1';
-            o_we <= '0';
-            -- Read the input
-            o_address <= "0000000000001000";
-            addr := unsigned(i_data);
-            -- Check for word block in every input
-            for i in 0 to 7 loop
-                case i is
-                    when 0 =>
-                        o_address <= "0000000000000000";
-                        wbBlock := "000";
-                    when 1 =>
-                        o_address <= "0000000000000001";
-                        wbBlock := "001";
-                    when 2 =>
-                        o_address <= "0000000000000010";
-                        wbBlock := "010";
-                    when 3 =>
-                        o_address <= "0000000000000011";
-                        wbBlock := "011";
-                    when 4 =>
-                        o_address <= "0000000000000100";
-                        wbBlock := "100";
-                    when 5 =>
-                        o_address <= "0000000000000101";
-                        wbBlock := "101";
-                    when 6 =>
-                        o_address <= "0000000000000110";
-                        wbBlock := "110";
-                    when 7 =>
-                        o_address <= "0000000000000111";
-                        wbBlock := "111";
-                end case;
-                if unsigned(i_data) = addr then
-                    -- Exists in a wb
-                    wbPresent := '1';
-                    wbOffset := "0001";
-                    exit;
-                end if;
-                if unsigned(i_data) = addr+1 then
-                    -- Exists in a wb
-                    wbPresent := '1';
-                    wbOffset := "0010";
-                    exit;
-                end if;
-                if unsigned(i_data) = addr+2 then
-                    -- Exists in a wb
-                    wbPresent := '1';
-                    wbOffset := "0100";
-                    exit;
-                end if;
-                if unsigned(i_data) = addr+3 then
-                    -- Exists in a wb
-                    wbPresent := '1';
-                    wbOffset := "1000";
-                    exit;
-                end if;
-            end loop;
-            if wbPresent = '0' then
-                o_data <= '0' & STD_LOGIC_VECTOR(addr);
-            else
-                -- 1 + WZ in binario + Offset in one hot
-                o_data <= '1' & wbBlock & wbOffset;
-            end if;
-            o_en <= '1';
-            o_we <= '1';
-            o_done <= '1';
-        end if;           
     end process;
+    -- Here we can for example set up o_en to 1 if we are in the done state
 end Behavioral;
