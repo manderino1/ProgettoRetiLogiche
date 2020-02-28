@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -46,7 +46,7 @@ end project_reti_logiche;
 architecture Behavioral of project_reti_logiche is
     type STATE_TYPE IS (read_wb0, store_wb0_load_wb1, store_wb1_load_wb2, store_wb2_load_wb3, 
         store_wb3_load_wb4, store_wb4_load_wb5, store_wb5_load_wb6, store_wb6_load_wb7, store_wb7, wait_wb,
-        read_addr, wait_addr, process_addr, wait_for_start);  -- Define here the list of the states
+        read_addr, wait_addr, process_addr, wait_for_start, write_addr, set_done);  -- Define here the list of the states
 	signal current_state : STATE_TYPE := read_wb0;    -- Signal that contains the current state
 	signal wb_load_done : STD_LOGIC := '0';
 	signal wb_addr_0, wb_addr_0_next : STD_LOGIC_VECTOR(7 downto 0);
@@ -59,6 +59,7 @@ architecture Behavioral of project_reti_logiche is
 	signal wb_addr_7, wb_addr_7_next : STD_LOGIC_VECTOR(7 downto 0);							      
 begin
     process(i_clk, i_rst)
+    variable temp : UNSIGNED(63 downto 0);
     begin
         if i_rst = '1' then
             -- Reset all the port and signals to default state
@@ -135,11 +136,90 @@ begin
                 when process_addr =>
                     -- Here we check if in wz and then publish the output
                     -- PUT HERE ALL THE PROCESSING PART
-                    o_data <= i_data; -- JUST FOR TESTING
+                    temp := UNSIGNED(wb_addr_0 & wb_addr_1 & wb_addr_2 & wb_addr_3 & wb_addr_4 & wb_addr_5 & wb_addr_6 & wb_addr_7);
+                    if i_data = std_logic_vector(temp(63 downto 56)) then
+                        o_data <= '1' & "000" & "0001";
+                    elsif i_data = std_logic_vector(temp(63 downto 56)+1) then
+                        o_data <= '1' & "000" & "0010";
+                    elsif i_data = std_logic_vector(temp(63 downto 56)+2) then
+                        o_data <= '1' & "000" & "0100";
+                    elsif i_data = std_logic_vector(temp(63 downto 56)+3) then
+                        o_data <= '1' & "000" & "1000";
+                    elsif i_data = std_logic_vector(temp(55 downto 48)) then
+                        o_data <= '1' & "001" & "0001";
+                    elsif i_data = std_logic_vector(temp(55 downto 48)+1) then
+                        o_data <= '1' & "001" & "0010";
+                    elsif i_data = std_logic_vector(temp(55 downto 48)+2) then
+                        o_data <= '1' & "001" & "0100";
+                    elsif i_data = std_logic_vector(temp(55 downto 48)+3) then
+                        o_data <= '1' & "001" & "1000";
+                    elsif i_data = std_logic_vector(temp(47 downto 40)) then
+                        o_data <= '1' & "010" & "0001";
+                    elsif i_data = std_logic_vector(temp(47 downto 40)+1) then
+                        o_data <= '1' & "010" & "0010";
+                    elsif i_data = std_logic_vector(temp(47 downto 40)+2) then
+                        o_data <= '1' & "010" & "0100";
+                    elsif i_data = std_logic_vector(temp(47 downto 40)+3) then
+                        o_data <= '1' & "010" & "1000";
+                    elsif i_data = std_logic_vector(temp(39 downto 32)) then
+                        o_data <= '1' & "011" & "0001";
+                    elsif i_data = std_logic_vector(temp(39 downto 32)+1) then
+                        o_data <= '1' & "011" & "0010";
+                    elsif i_data = std_logic_vector(temp(39 downto 32)+2) then
+                        o_data <= '1' & "011" & "0100";
+                    elsif i_data = std_logic_vector(temp(39 downto 32)+3) then
+                        o_data <= '1' & "011" & "1000";
+                    elsif i_data = std_logic_vector(temp(31 downto 24)) then
+                        o_data <= '1' & "100" & "0001";
+                    elsif i_data = std_logic_vector(temp(31 downto 24)+1) then
+                        o_data <= '1' & "100" & "0010";
+                    elsif i_data = std_logic_vector(temp(31 downto 24)+2) then
+                        o_data <= '1' & "100" & "0100";
+                    elsif i_data = std_logic_vector(temp(31 downto 24)+3) then
+                        o_data <= '1' & "100" & "1000";
+                    elsif i_data = std_logic_vector(temp(23 downto 16)) then
+                        o_data <= '1' & "101" & "0001";
+                    elsif i_data = std_logic_vector(temp(23 downto 16)+1) then
+                        o_data <= '1' & "101" & "0010";
+                    elsif i_data = std_logic_vector(temp(23 downto 16)+2) then
+                        o_data <= '1' & "101" & "0100";
+                    elsif i_data = std_logic_vector(temp(23 downto 16)+3) then
+                        o_data <= '1' & "101" & "1000";
+                    elsif i_data = std_logic_vector(temp(15 downto 8)) then
+                        o_data <= '1' & "110" & "0001";
+                    elsif i_data = std_logic_vector(temp(15 downto 8)+1) then
+                        o_data <= '1' & "110" & "0010";
+                    elsif i_data = std_logic_vector(temp(15 downto 8)+2) then
+                        o_data <= '1' & "110" & "0100";
+                    elsif i_data = std_logic_vector(temp(15 downto 8)+3) then
+                        o_data <= '1' & "110" & "1000";
+                    elsif i_data = std_logic_vector(temp(7 downto 0)) then
+                        o_data <= '1' & "111" & "0001";
+                    elsif i_data = std_logic_vector(temp(7 downto 0)+1) then
+                        o_data <= '1' & "111" & "0010";
+                    elsif i_data = std_logic_vector(temp(7 downto 0)+2) then
+                        o_data <= '1' & "111" & "0100";
+                    elsif i_data = std_logic_vector(temp(7 downto 0)+3) then
+                        o_data <= '1' & "111" & "1000";
+                    else
+                        o_data <= '0' & i_data;
+                    end if;
+                    o_en <= '1';
+                    o_we <= '0';
+                    current_state <= write_addr;
                 when wait_for_start =>
                     if i_start = '1' then
+                        o_done <= '0';
                         current_state <= read_addr;
                     end if;
+                when write_addr =>
+                    o_we <= '1';
+                    o_address <= "0000000000001001";
+                    current_state <= set_done;
+                when set_done =>
+                    o_we <= '0';
+                    o_done <= '1';
+                    current_state <= wait_for_start;
             end case;
             
             -- Setting all registers to the next value
