@@ -1,0 +1,8 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+Failure: Simulation Ended!, TEST 1 PASSATO
+Time: 2050100 ps  Iteration: 0  Process: /project_tb/test  File: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_3/imports/Desktop/multi_start_fix.vhd
+$finish called at time : 2050100 ps : File "D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_3/imports/Desktop/multi_start_fix.vhd" Line 135
+Failure: Simulation Ended!, TEST 2 PASSATO
+Time: 2650100 ps  Iteration: 0  Process: /project_tb/test  File: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_3/imports/Desktop/multi_start_fix.vhd
+$finish called at time : 2650100 ps : File "D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_3/imports/Desktop/multi_start_fix.vhd" Line 150

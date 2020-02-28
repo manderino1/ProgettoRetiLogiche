@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Fri Feb 28 19:40:57 2020
+| Date         : Fri Feb 28 20:57:05 2020
 | Host         : DESKTOP-4GTPJBL running 64-bit major release  (build 9200)
 | Command      : report_drc -file project_reti_logiche_drc_opted.rpt -pb project_reti_logiche_drc_opted.pb -rpx project_reti_logiche_drc_opted.rpx
 | Design       : project_reti_logiche
@@ -20,7 +20,7 @@ Table of Contents
 1. REPORT SUMMARY
 -----------------
             Netlist: netlist
-          Floorplan: design_1
+          Floorplan: checkpoint_project_reti_logiche
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>

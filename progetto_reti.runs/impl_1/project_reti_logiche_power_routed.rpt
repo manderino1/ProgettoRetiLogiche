@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Fri Feb 28 19:42:17 2020
+| Date             : Fri Feb 28 20:58:25 2020
 | Host             : DESKTOP-4GTPJBL running 64-bit major release  (build 9200)
 | Command          : report_power -file project_reti_logiche_power_routed.rpt -pb project_reti_logiche_power_summary_routed.pb -rpx project_reti_logiche_power_routed.rpx
 | Design           : project_reti_logiche
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 4.927        |
+| Total On-Chip Power (W)  | 4.907        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 4.773        |
+| Dynamic (W)              | 4.754        |
 | Device Static (W)        | 0.153        |
 | Effective TJA (C/W)      | 2.5          |
-| Max Ambient (C)          | 72.8         |
-| Junction Temperature (C) | 37.2         |
+| Max Ambient (C)          | 72.9         |
+| Junction Temperature (C) | 37.1         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,15 +52,15 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     1.141 |      512 |       --- |             --- |
-|   LUT as Logic |     1.112 |      296 |    133800 |            0.22 |
+| Slice Logic    |     1.146 |      513 |       --- |             --- |
+|   LUT as Logic |     1.118 |      298 |    133800 |            0.22 |
 |   Register     |     0.023 |      159 |    267600 |            0.06 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
 |   Others       |     0.000 |        1 |       --- |             --- |
-| Signals        |     1.052 |      510 |       --- |             --- |
-| I/O            |     2.580 |       38 |       285 |           13.33 |
+| Signals        |     1.004 |      509 |       --- |             --- |
+| I/O            |     2.603 |       38 |       285 |           13.33 |
 | Static Power   |     0.153 |          |           |                 |
-| Total          |     4.927 |          |           |                 |
+| Total          |     4.907 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -70,11 +70,11 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     2.282 |       2.234 |      0.049 |
-| Vccaux    |       1.800 |     0.240 |       0.208 |      0.033 |
+| Vccint    |       1.000 |     2.239 |       2.191 |      0.048 |
+| Vccaux    |       1.800 |     0.242 |       0.210 |      0.033 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
-| Vcco18    |       1.800 |     1.208 |       1.203 |      0.005 |
+| Vcco18    |       1.800 |     1.219 |       1.214 |      0.005 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
@@ -137,7 +137,7 @@ Table of Contents
 +----------------------+-----------+
 | Name                 | Power (W) |
 +----------------------+-----------+
-| project_reti_logiche |     4.773 |
+| project_reti_logiche |     4.754 |
 +----------------------+-----------+
 
 

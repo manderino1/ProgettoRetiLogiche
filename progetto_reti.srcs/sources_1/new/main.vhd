@@ -62,9 +62,10 @@ begin
     begin
         if i_rst = '1' then
             -- Reset all the port and signals to default state
-            current_state <= read_wb0; -- TESTING ONLY, LOADING WB ADDRESSES ON START
+            current_state <= read_wb0; -- Start loading of wb addresses
+            o_done <= '0';
             o_en <= '0';
-            wb_load_done <= '0';
+            wb_load_done <= '0'; -- SERVE?
         elsif rising_edge(i_clk) then
             -- Defining all the state machine into this case
             -- Remember to cover all the case and assign the signal to the signal_next value

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a200tfbg484-1" LaunchTime="1582915218">
+<GenRun Id="impl_1" LaunchPart="xc7a200tfbg484-1" LaunchTime="1582919785">
+  <File Type="OPT-HWDEF" Name="project_reti_logiche.hwdef"/>
+  <File Type="ROUTE-BUS-SKEW" Name="project_reti_logiche_bus_skew_routed.rpt"/>
+  <File Type="PA-DCP" Name="project_reti_logiche.dcp"/>
   <File Type="BITSTR-BMM" Name="project_reti_logiche_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="project_reti_logiche_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="project_reti_logiche_timing_summary_init.rpt"/>
@@ -10,7 +13,6 @@
   <File Type="ROUTE-PWR-SUM" Name="project_reti_logiche_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="project_reti_logiche_reports.tcl"/>
   <File Type="OPT-DRC" Name="project_reti_logiche_drc_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="project_reti_logiche.hwdef"/>
   <File Type="PWROPT-DCP" Name="project_reti_logiche_pwropt.dcp"/>
   <File Type="PWROPT-DRC" Name="project_reti_logiche_drc_pwropted.rpt"/>
   <File Type="PWROPT-TIMING" Name="project_reti_logiche_timing_summary_pwropted.rpt"/>
@@ -48,7 +50,6 @@
   <File Type="ROUTE-TIMING-RPX" Name="project_reti_logiche_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="project_reti_logiche_incremental_reuse_routed.rpt"/>
   <File Type="ROUTE-CLK" Name="project_reti_logiche_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="project_reti_logiche_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="project_reti_logiche_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="project_reti_logiche_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="project_reti_logiche_postroute_physopt.dcp"/>

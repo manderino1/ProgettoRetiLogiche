@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../progetto_reti.srcs/sources_1/new/main.vhd" \
+"../../../../progetto_reti.srcs/sim_3/imports/Desktop/multi_start_fix.vhd" \
+
+# Do not sort compile order
+nosort
