@@ -202,7 +202,7 @@ begin
                     elsif i_data = std_logic_vector(temp(7 downto 0)+3) then
                         o_data <= '1' & "111" & "1000";
                     else
-                        o_data <= '0' & i_data;
+                        o_data <= '0' & i_data(6 downto 0);
                     end if;
                     o_en <= '1';
                     o_we <= '0';
