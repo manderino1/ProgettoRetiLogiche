@@ -125,7 +125,11 @@ begin
                     wb_addr_7 <= i_data;
                     o_en <= '0';
                     o_we <= '0';
-                    current_state <= wait_for_start;
+                    if i_start = '1' then
+                        current_state <= read_addr;
+                    else
+                        current_state <= wait_for_start;
+                    end if;
                 when read_addr =>
                     o_en <= '1';
                     o_we <= '0';
