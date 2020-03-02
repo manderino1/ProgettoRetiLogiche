@@ -2,14 +2,13 @@
 # Webtalk v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Fri Feb 28 19:22:49 2020
-# Process ID: 4156
+# Start of session at: Mon Mar  2 16:21:24 2020
+# Process ID: 12400
 # Current directory: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim
 # Command line: wbtcv.exe -mode batch -source D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
 source D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-186] 'D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Fri Feb 28 19:22:56 2020. For additional details about this file, please refer to the WebTalk help file at D:/Programmi/Xilinx/Vivado/2019.2/doc/webtalk_introduction.html.
-webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 79.910 ; gain = 10.477
-INFO: [Common 17-206] Exiting Webtalk at Fri Feb 28 19:22:56 2020...
+INFO: [Common 17-186] 'D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Mon Mar  2 16:21:28 2020. For additional details about this file, please refer to the WebTalk help file at D:/Programmi/Xilinx/Vivado/2019.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Mon Mar  2 16:21:28 2020...
