@@ -46,7 +46,7 @@ end project_reti_logiche;
 architecture Behavioral of project_reti_logiche is
     type STATE_TYPE IS (read_wb0, store_wb0_load_wb1, store_wb1_load_wb2, store_wb2_load_wb3, 
         store_wb3_load_wb4, store_wb4_load_wb5, store_wb5_load_wb6, store_wb6_load_wb7, store_wb7, wait_wb,
-        read_addr, wait_addr, process_addr, wait_for_start, write_addr, set_done);  -- Define here the list of the states
+        read_addr, wait_addr, process_addr, wait_for_start, write_addr, set_done, wait_for_done);  -- Define here the list of the states
 	signal current_state : STATE_TYPE := read_wb0;    -- Signal that contains the current state
 	signal wb_load_done : STD_LOGIC := '0';
 	signal wb_addr_0 : STD_LOGIC_VECTOR(7 downto 0);
@@ -218,8 +218,11 @@ begin
                     o_address <= "0000000000001001";
                     current_state <= set_done;
                 when set_done =>
+                    o_en <= '0';
                     o_we <= '0';
                     o_done <= '1';
+                    current_state <= wait_for_done;
+                when wait_for_done =>
                     current_state <= wait_for_start;
             end case;
             
