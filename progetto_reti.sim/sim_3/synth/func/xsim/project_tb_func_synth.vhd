@@ -1,7 +1,7 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
--- Date        : Mon Mar  2 16:44:38 2020
+-- Date        : Mon Mar  2 17:15:28 2020
 -- Host        : DESKTOP-4GTPJBL running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -mode funcsim -nolib -force -file
 --               D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_3/synth/func/xsim/project_tb_func_synth.vhd
@@ -31,20 +31,31 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture STRUCTURE of project_reti_logiche is
-  signal \FSM_sequential_current_state[0]_i_1_n_0\ : STD_LOGIC;
-  signal \FSM_sequential_current_state[2]_i_1_n_0\ : STD_LOGIC;
-  signal \FSM_sequential_current_state[4]_i_1_n_0\ : STD_LOGIC;
-  signal current_state : STD_LOGIC_VECTOR ( 4 downto 0 );
-  signal \current_state__0\ : STD_LOGIC_VECTOR ( 4 downto 1 );
+  signal \FSM_onehot_current_state[10]_i_1_n_0\ : STD_LOGIC;
+  signal \FSM_onehot_current_state[11]_i_1_n_0\ : STD_LOGIC;
+  signal \FSM_onehot_current_state[16]_i_1_n_0\ : STD_LOGIC;
+  signal \FSM_onehot_current_state[16]_i_2_n_0\ : STD_LOGIC;
+  signal \FSM_onehot_current_state[16]_i_3_n_0\ : STD_LOGIC;
+  signal \FSM_onehot_current_state_reg_n_0_[0]\ : STD_LOGIC;
+  signal \FSM_onehot_current_state_reg_n_0_[10]\ : STD_LOGIC;
+  signal \FSM_onehot_current_state_reg_n_0_[11]\ : STD_LOGIC;
+  signal \FSM_onehot_current_state_reg_n_0_[12]\ : STD_LOGIC;
+  signal \FSM_onehot_current_state_reg_n_0_[13]\ : STD_LOGIC;
+  signal \FSM_onehot_current_state_reg_n_0_[14]\ : STD_LOGIC;
+  signal \FSM_onehot_current_state_reg_n_0_[15]\ : STD_LOGIC;
+  signal \FSM_onehot_current_state_reg_n_0_[16]\ : STD_LOGIC;
+  signal \FSM_onehot_current_state_reg_n_0_[1]\ : STD_LOGIC;
   signal i_clk_IBUF : STD_LOGIC;
   signal i_clk_IBUF_BUFG : STD_LOGIC;
   signal i_data_IBUF : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal i_rst_IBUF : STD_LOGIC;
   signal i_start_IBUF : STD_LOGIC;
+  signal o_address0 : STD_LOGIC;
   signal \o_address[0]_i_1_n_0\ : STD_LOGIC;
   signal \o_address[1]_i_1_n_0\ : STD_LOGIC;
   signal \o_address[2]_i_1_n_0\ : STD_LOGIC;
-  signal \o_address[3]_i_1_n_0\ : STD_LOGIC;
+  signal \o_address[3]_i_2_n_0\ : STD_LOGIC;
+  signal \o_address[3]_i_3_n_0\ : STD_LOGIC;
   signal o_address_OBUF : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal o_data1 : STD_LOGIC;
   signal o_data110_out : STD_LOGIC;
@@ -378,269 +389,406 @@ architecture STRUCTURE of project_reti_logiche is
   signal o_en_OBUF : STD_LOGIC;
   signal o_en_i_1_n_0 : STD_LOGIC;
   signal o_en_i_2_n_0 : STD_LOGIC;
+  signal o_we0 : STD_LOGIC;
   signal o_we_OBUF : STD_LOGIC;
-  signal o_we_i_1_n_0 : STD_LOGIC;
   signal o_we_i_2_n_0 : STD_LOGIC;
   signal plusOp30_in : STD_LOGIC_VECTOR ( 5 to 5 );
   signal plusOp5_in : STD_LOGIC_VECTOR ( 5 to 5 );
   signal plusOp9_in : STD_LOGIC_VECTOR ( 5 to 5 );
+  signal wb_addr_0 : STD_LOGIC;
   signal \wb_addr_0[7]_i_1_n_0\ : STD_LOGIC;
   signal \wb_addr_0__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal wb_addr_1 : STD_LOGIC;
   signal \wb_addr_1[7]_i_1_n_0\ : STD_LOGIC;
   signal \wb_addr_1__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal wb_addr_2 : STD_LOGIC;
   signal \wb_addr_2[7]_i_1_n_0\ : STD_LOGIC;
   signal \wb_addr_2__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal wb_addr_3 : STD_LOGIC;
   signal \wb_addr_3[7]_i_1_n_0\ : STD_LOGIC;
   signal \wb_addr_3__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal wb_addr_4 : STD_LOGIC;
   signal \wb_addr_4[7]_i_1_n_0\ : STD_LOGIC;
   signal \wb_addr_4__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal wb_addr_5 : STD_LOGIC;
   signal \wb_addr_5[7]_i_1_n_0\ : STD_LOGIC;
   signal \wb_addr_5__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal wb_addr_6 : STD_LOGIC;
   signal \wb_addr_6[7]_i_1_n_0\ : STD_LOGIC;
   signal \wb_addr_6__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal wb_addr_7 : STD_LOGIC;
   signal \wb_addr_7[7]_i_1_n_0\ : STD_LOGIC;
   signal \wb_addr_7__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \FSM_sequential_current_state[1]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \FSM_sequential_current_state[2]_i_1\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \FSM_sequential_current_state[3]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \FSM_sequential_current_state[4]_i_2\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \FSM_onehot_current_state[10]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \FSM_onehot_current_state[11]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \FSM_onehot_current_state[16]_i_2\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \FSM_onehot_current_state[16]_i_3\ : label is "soft_lutpair48";
   attribute FSM_ENCODED_STATES : string;
-  attribute FSM_ENCODED_STATES of \FSM_sequential_current_state_reg[0]\ : label is "write_addr:01110,wait_for_start:01010,process_addr:01101,store_wb2_load_wb3:00100,store_wb1_load_wb2:00011,wait_for_done:10000,store_wb0_load_wb1:00010,wait_addr:01100,read_wb0:00000,read_addr:01011,store_wb6_load_wb7:01000,store_wb5_load_wb6:00111,wait_wb:00001,store_wb7:01001,store_wb4_load_wb5:00110,store_wb3_load_wb4:00101,set_done:01111";
-  attribute FSM_ENCODED_STATES of \FSM_sequential_current_state_reg[1]\ : label is "write_addr:01110,wait_for_start:01010,process_addr:01101,store_wb2_load_wb3:00100,store_wb1_load_wb2:00011,wait_for_done:10000,store_wb0_load_wb1:00010,wait_addr:01100,read_wb0:00000,read_addr:01011,store_wb6_load_wb7:01000,store_wb5_load_wb6:00111,wait_wb:00001,store_wb7:01001,store_wb4_load_wb5:00110,store_wb3_load_wb4:00101,set_done:01111";
-  attribute FSM_ENCODED_STATES of \FSM_sequential_current_state_reg[2]\ : label is "write_addr:01110,wait_for_start:01010,process_addr:01101,store_wb2_load_wb3:00100,store_wb1_load_wb2:00011,wait_for_done:10000,store_wb0_load_wb1:00010,wait_addr:01100,read_wb0:00000,read_addr:01011,store_wb6_load_wb7:01000,store_wb5_load_wb6:00111,wait_wb:00001,store_wb7:01001,store_wb4_load_wb5:00110,store_wb3_load_wb4:00101,set_done:01111";
-  attribute FSM_ENCODED_STATES of \FSM_sequential_current_state_reg[3]\ : label is "write_addr:01110,wait_for_start:01010,process_addr:01101,store_wb2_load_wb3:00100,store_wb1_load_wb2:00011,wait_for_done:10000,store_wb0_load_wb1:00010,wait_addr:01100,read_wb0:00000,read_addr:01011,store_wb6_load_wb7:01000,store_wb5_load_wb6:00111,wait_wb:00001,store_wb7:01001,store_wb4_load_wb5:00110,store_wb3_load_wb4:00101,set_done:01111";
-  attribute FSM_ENCODED_STATES of \FSM_sequential_current_state_reg[4]\ : label is "write_addr:01110,wait_for_start:01010,process_addr:01101,store_wb2_load_wb3:00100,store_wb1_load_wb2:00011,wait_for_done:10000,store_wb0_load_wb1:00010,wait_addr:01100,read_wb0:00000,read_addr:01011,store_wb6_load_wb7:01000,store_wb5_load_wb6:00111,wait_wb:00001,store_wb7:01001,store_wb4_load_wb5:00110,store_wb3_load_wb4:00101,set_done:01111";
-  attribute SOFT_HLUTNM of \o_address[1]_i_1\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \o_address[2]_i_1\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \o_data[0]_i_12\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \o_data[0]_i_14\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \o_data[0]_i_4\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \o_data[0]_i_7\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \o_data[0]_i_8\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \o_data[1]_i_10\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \o_data[1]_i_11\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \o_data[1]_i_13\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \o_data[1]_i_14\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \o_data[1]_i_15\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \o_data[1]_i_17\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \o_data[1]_i_18\ : label is "soft_lutpair52";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[0]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[10]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[11]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[12]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[13]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[14]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[15]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[16]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[1]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[2]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[3]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[4]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[5]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[6]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[7]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[8]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[9]\ : label is "write_addr:00100000000000000,wait_for_start:00000010000000000,process_addr:00010000000000000,store_wb2_load_wb3:00000000000010000,store_wb1_load_wb2:00000000000001000,wait_for_done:10000000000000000,store_wb0_load_wb1:00000000000000100,wait_addr:00001000000000000,read_wb0:00000000000000001,read_addr:00000100000000000,store_wb6_load_wb7:00000000100000000,store_wb5_load_wb6:00000000010000000,wait_wb:00000000000000010,store_wb7:00000001000000000,store_wb4_load_wb5:00000000001000000,store_wb3_load_wb4:00000000000100000,set_done:01000000000000000";
+  attribute SOFT_HLUTNM of \o_address[3]_i_2\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \o_data[0]_i_12\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \o_data[0]_i_14\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \o_data[0]_i_4\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \o_data[0]_i_7\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \o_data[0]_i_8\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \o_data[1]_i_10\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \o_data[1]_i_11\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \o_data[1]_i_13\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \o_data[1]_i_14\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \o_data[1]_i_15\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \o_data[1]_i_17\ : label is "soft_lutpair41";
   attribute SOFT_HLUTNM of \o_data[1]_i_2\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \o_data[1]_i_20\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \o_data[2]_i_11\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \o_data[1]_i_20\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \o_data[2]_i_11\ : label is "soft_lutpair34";
   attribute SOFT_HLUTNM of \o_data[2]_i_5\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \o_data[2]_i_7\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \o_data[2]_i_8\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \o_data[3]_i_14\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \o_data[3]_i_17\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \o_data[3]_i_22\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \o_data[3]_i_7\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \o_data[3]_i_8\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \o_data[2]_i_7\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \o_data[2]_i_8\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \o_data[3]_i_14\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \o_data[3]_i_17\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \o_data[3]_i_22\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \o_data[3]_i_7\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \o_data[3]_i_8\ : label is "soft_lutpair42";
   attribute SOFT_HLUTNM of \o_data[4]_i_12\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \o_data[4]_i_13\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \o_data[4]_i_17\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \o_data[4]_i_18\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \o_data[4]_i_2\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \o_data[4]_i_21\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \o_data[4]_i_3\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \o_data[4]_i_4\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \o_data[4]_i_5\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \o_data[5]_i_10\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \o_data[4]_i_13\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \o_data[4]_i_17\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \o_data[4]_i_18\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \o_data[4]_i_2\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \o_data[4]_i_21\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \o_data[4]_i_3\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \o_data[4]_i_4\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \o_data[4]_i_5\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \o_data[5]_i_10\ : label is "soft_lutpair43";
   attribute SOFT_HLUTNM of \o_data[5]_i_18\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \o_data[5]_i_2\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \o_data[5]_i_20\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \o_data[5]_i_22\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \o_data[5]_i_23\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \o_data[5]_i_24\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \o_data[5]_i_5\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \o_data[5]_i_6\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \o_data[6]_i_104\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \o_data[6]_i_105\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \o_data[6]_i_107\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \o_data[6]_i_108\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \o_data[6]_i_111\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \o_data[6]_i_112\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \o_data[6]_i_115\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \o_data[6]_i_119\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \o_data[5]_i_20\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \o_data[5]_i_22\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \o_data[5]_i_23\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \o_data[5]_i_24\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \o_data[5]_i_5\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \o_data[5]_i_6\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \o_data[6]_i_104\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \o_data[6]_i_105\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \o_data[6]_i_107\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \o_data[6]_i_108\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \o_data[6]_i_111\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \o_data[6]_i_112\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \o_data[6]_i_115\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \o_data[6]_i_116\ : label is "soft_lutpair21";
   attribute SOFT_HLUTNM of \o_data[6]_i_12\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \o_data[6]_i_120\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \o_data[6]_i_122\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \o_data[6]_i_125\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \o_data[6]_i_127\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \o_data[6]_i_129\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \o_data[6]_i_130\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \o_data[6]_i_2\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \o_data[6]_i_25\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \o_data[6]_i_28\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \o_data[6]_i_31\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \o_data[6]_i_35\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \o_data[6]_i_41\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \o_data[6]_i_120\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \o_data[6]_i_122\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \o_data[6]_i_125\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \o_data[6]_i_128\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \o_data[6]_i_129\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \o_data[6]_i_130\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \o_data[6]_i_2\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \o_data[6]_i_25\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \o_data[6]_i_28\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \o_data[6]_i_31\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \o_data[6]_i_34\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \o_data[6]_i_35\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \o_data[6]_i_41\ : label is "soft_lutpair16";
   attribute SOFT_HLUTNM of \o_data[6]_i_47\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \o_data[6]_i_59\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \o_data[6]_i_59\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \o_data[6]_i_6\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \o_data[6]_i_62\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \o_data[6]_i_72\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \o_data[6]_i_73\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \o_data[6]_i_74\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \o_data[6]_i_77\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \o_data[6]_i_79\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \o_data[6]_i_80\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \o_data[6]_i_83\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \o_data[6]_i_85\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \o_data[6]_i_88\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \o_data[6]_i_90\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \o_data[6]_i_63\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \o_data[6]_i_72\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \o_data[6]_i_73\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \o_data[6]_i_74\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \o_data[6]_i_77\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \o_data[6]_i_79\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \o_data[6]_i_80\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \o_data[6]_i_83\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \o_data[6]_i_85\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \o_data[6]_i_88\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \o_data[6]_i_90\ : label is "soft_lutpair32";
   attribute SOFT_HLUTNM of \o_data[6]_i_91\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \o_data[6]_i_92\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \o_data[6]_i_95\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \o_data[6]_i_92\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \o_data[6]_i_95\ : label is "soft_lutpair28";
   attribute SOFT_HLUTNM of \o_data[6]_i_96\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \o_data[6]_i_99\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \o_data[7]_i_11\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \o_data[6]_i_99\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \o_data[7]_i_11\ : label is "soft_lutpair34";
   attribute SOFT_HLUTNM of \o_data[7]_i_14\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \o_data[7]_i_26\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \o_data[7]_i_29\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \o_data[7]_i_34\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \o_data[7]_i_19\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \o_data[7]_i_26\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \o_data[7]_i_29\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \o_data[7]_i_34\ : label is "soft_lutpair8";
   attribute SOFT_HLUTNM of \o_data[7]_i_37\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \o_data[7]_i_42\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \o_data[7]_i_43\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \o_data[7]_i_43\ : label is "soft_lutpair8";
   attribute SOFT_HLUTNM of \o_data[7]_i_46\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \o_data[7]_i_5\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \o_data[7]_i_50\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \o_data[7]_i_51\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \o_data[7]_i_57\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \o_data[7]_i_5\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \o_data[7]_i_50\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \o_data[7]_i_51\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \o_data[7]_i_57\ : label is "soft_lutpair15";
   attribute SOFT_HLUTNM of \o_data[7]_i_59\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \o_data[7]_i_6\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \o_data[7]_i_62\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \o_data[7]_i_64\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \o_data[7]_i_66\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \o_data[7]_i_67\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \o_data[7]_i_68\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \o_data[7]_i_69\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \o_data[7]_i_72\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \o_data[7]_i_74\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \o_data[7]_i_6\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \o_data[7]_i_62\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \o_data[7]_i_64\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \o_data[7]_i_66\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \o_data[7]_i_67\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \o_data[7]_i_68\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \o_data[7]_i_69\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \o_data[7]_i_72\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \o_data[7]_i_74\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of o_en_i_2 : label is "soft_lutpair48";
 begin
-\FSM_sequential_current_state[0]_i_1\: unisim.vcomponents.LUT2
+\FSM_onehot_current_state[10]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"1"
+      INIT => X"F4"
     )
         port map (
-      I0 => current_state(4),
-      I1 => current_state(0),
-      O => \FSM_sequential_current_state[0]_i_1_n_0\
+      I0 => i_start_IBUF,
+      I1 => wb_addr_7,
+      I2 => \FSM_onehot_current_state_reg_n_0_[16]\,
+      O => \FSM_onehot_current_state[10]_i_1_n_0\
     );
-\FSM_sequential_current_state[1]_i_1\: unisim.vcomponents.LUT5
+\FSM_onehot_current_state[11]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"06060616"
+      INIT => X"F8"
     )
         port map (
-      I0 => current_state(0),
-      I1 => current_state(1),
-      I2 => current_state(4),
-      I3 => current_state(2),
-      I4 => current_state(3),
-      O => \current_state__0\(1)
+      I0 => wb_addr_7,
+      I1 => i_start_IBUF,
+      I2 => \FSM_onehot_current_state_reg_n_0_[10]\,
+      O => \FSM_onehot_current_state[11]_i_1_n_0\
     );
-\FSM_sequential_current_state[2]_i_1\: unisim.vcomponents.LUT4
+\FSM_onehot_current_state[16]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"006A"
+      INIT => X"FFFFFFFEFFFEFFFE"
     )
         port map (
-      I0 => current_state(2),
-      I1 => current_state(0),
-      I2 => current_state(1),
-      I3 => current_state(4),
-      O => \FSM_sequential_current_state[2]_i_1_n_0\
+      I0 => \FSM_onehot_current_state[16]_i_2_n_0\,
+      I1 => \FSM_onehot_current_state_reg_n_0_[12]\,
+      I2 => \FSM_onehot_current_state_reg_n_0_[16]\,
+      I3 => \FSM_onehot_current_state[16]_i_3_n_0\,
+      I4 => i_start_IBUF,
+      I5 => \FSM_onehot_current_state_reg_n_0_[10]\,
+      O => \FSM_onehot_current_state[16]_i_1_n_0\
     );
-\FSM_sequential_current_state[3]_i_1\: unisim.vcomponents.LUT5
+\FSM_onehot_current_state[16]_i_2\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"00016CCC"
+      INIT => X"FE"
     )
         port map (
-      I0 => current_state(0),
-      I1 => current_state(3),
-      I2 => current_state(1),
-      I3 => current_state(2),
-      I4 => current_state(4),
-      O => \current_state__0\(3)
+      I0 => \FSM_onehot_current_state_reg_n_0_[14]\,
+      I1 => \o_address[3]_i_3_n_0\,
+      I2 => \FSM_onehot_current_state_reg_n_0_[1]\,
+      O => \FSM_onehot_current_state[16]_i_2_n_0\
     );
-\FSM_sequential_current_state[4]_i_1\: unisim.vcomponents.LUT6
+\FSM_onehot_current_state[16]_i_3\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"00000101FFFDFFFF"
+      INIT => X"FFFE"
     )
         port map (
-      I0 => current_state(3),
-      I1 => current_state(2),
-      I2 => current_state(0),
-      I3 => i_start_IBUF,
-      I4 => current_state(1),
-      I5 => current_state(4),
-      O => \FSM_sequential_current_state[4]_i_1_n_0\
+      I0 => \FSM_onehot_current_state_reg_n_0_[15]\,
+      I1 => wb_addr_7,
+      I2 => \FSM_onehot_current_state_reg_n_0_[13]\,
+      I3 => wb_addr_6,
+      O => \FSM_onehot_current_state[16]_i_3_n_0\
     );
-\FSM_sequential_current_state[4]_i_2\: unisim.vcomponents.LUT5
+\FSM_onehot_current_state_reg[0]\: unisim.vcomponents.FDPE
     generic map(
-      INIT => X"40000000"
+      INIT => '1'
     )
         port map (
-      I0 => current_state(4),
-      I1 => current_state(1),
-      I2 => current_state(0),
-      I3 => current_state(3),
-      I4 => current_state(2),
-      O => \current_state__0\(4)
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      D => '0',
+      PRE => i_rst_IBUF,
+      Q => \FSM_onehot_current_state_reg_n_0_[0]\
     );
-\FSM_sequential_current_state_reg[0]\: unisim.vcomponents.FDCE
+\FSM_onehot_current_state_reg[10]\: unisim.vcomponents.FDCE
     generic map(
       INIT => '0'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => \FSM_sequential_current_state[4]_i_1_n_0\,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
       CLR => i_rst_IBUF,
-      D => \FSM_sequential_current_state[0]_i_1_n_0\,
-      Q => current_state(0)
+      D => \FSM_onehot_current_state[10]_i_1_n_0\,
+      Q => \FSM_onehot_current_state_reg_n_0_[10]\
     );
-\FSM_sequential_current_state_reg[1]\: unisim.vcomponents.FDCE
+\FSM_onehot_current_state_reg[11]\: unisim.vcomponents.FDCE
     generic map(
       INIT => '0'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => \FSM_sequential_current_state[4]_i_1_n_0\,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
       CLR => i_rst_IBUF,
-      D => \current_state__0\(1),
-      Q => current_state(1)
+      D => \FSM_onehot_current_state[11]_i_1_n_0\,
+      Q => \FSM_onehot_current_state_reg_n_0_[11]\
     );
-\FSM_sequential_current_state_reg[2]\: unisim.vcomponents.FDCE
+\FSM_onehot_current_state_reg[12]\: unisim.vcomponents.FDCE
     generic map(
       INIT => '0'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => \FSM_sequential_current_state[4]_i_1_n_0\,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
       CLR => i_rst_IBUF,
-      D => \FSM_sequential_current_state[2]_i_1_n_0\,
-      Q => current_state(2)
+      D => \FSM_onehot_current_state_reg_n_0_[11]\,
+      Q => \FSM_onehot_current_state_reg_n_0_[12]\
     );
-\FSM_sequential_current_state_reg[3]\: unisim.vcomponents.FDCE
+\FSM_onehot_current_state_reg[13]\: unisim.vcomponents.FDCE
     generic map(
       INIT => '0'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => \FSM_sequential_current_state[4]_i_1_n_0\,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
       CLR => i_rst_IBUF,
-      D => \current_state__0\(3),
-      Q => current_state(3)
+      D => \FSM_onehot_current_state_reg_n_0_[12]\,
+      Q => \FSM_onehot_current_state_reg_n_0_[13]\
     );
-\FSM_sequential_current_state_reg[4]\: unisim.vcomponents.FDCE
+\FSM_onehot_current_state_reg[14]\: unisim.vcomponents.FDCE
     generic map(
       INIT => '0'
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => \FSM_sequential_current_state[4]_i_1_n_0\,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
       CLR => i_rst_IBUF,
-      D => \current_state__0\(4),
-      Q => current_state(4)
+      D => \FSM_onehot_current_state_reg_n_0_[13]\,
+      Q => \FSM_onehot_current_state_reg_n_0_[14]\
+    );
+\FSM_onehot_current_state_reg[15]\: unisim.vcomponents.FDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      CLR => i_rst_IBUF,
+      D => \FSM_onehot_current_state_reg_n_0_[14]\,
+      Q => \FSM_onehot_current_state_reg_n_0_[15]\
+    );
+\FSM_onehot_current_state_reg[16]\: unisim.vcomponents.FDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      CLR => i_rst_IBUF,
+      D => \FSM_onehot_current_state_reg_n_0_[15]\,
+      Q => \FSM_onehot_current_state_reg_n_0_[16]\
+    );
+\FSM_onehot_current_state_reg[1]\: unisim.vcomponents.FDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      CLR => i_rst_IBUF,
+      D => \FSM_onehot_current_state_reg_n_0_[0]\,
+      Q => \FSM_onehot_current_state_reg_n_0_[1]\
+    );
+\FSM_onehot_current_state_reg[2]\: unisim.vcomponents.FDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      CLR => i_rst_IBUF,
+      D => \FSM_onehot_current_state_reg_n_0_[1]\,
+      Q => wb_addr_0
+    );
+\FSM_onehot_current_state_reg[3]\: unisim.vcomponents.FDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      CLR => i_rst_IBUF,
+      D => wb_addr_0,
+      Q => wb_addr_1
+    );
+\FSM_onehot_current_state_reg[4]\: unisim.vcomponents.FDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      CLR => i_rst_IBUF,
+      D => wb_addr_1,
+      Q => wb_addr_2
+    );
+\FSM_onehot_current_state_reg[5]\: unisim.vcomponents.FDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      CLR => i_rst_IBUF,
+      D => wb_addr_2,
+      Q => wb_addr_3
+    );
+\FSM_onehot_current_state_reg[6]\: unisim.vcomponents.FDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      CLR => i_rst_IBUF,
+      D => wb_addr_3,
+      Q => wb_addr_4
+    );
+\FSM_onehot_current_state_reg[7]\: unisim.vcomponents.FDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      CLR => i_rst_IBUF,
+      D => wb_addr_4,
+      Q => wb_addr_5
+    );
+\FSM_onehot_current_state_reg[8]\: unisim.vcomponents.FDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      CLR => i_rst_IBUF,
+      D => wb_addr_5,
+      Q => wb_addr_6
+    );
+\FSM_onehot_current_state_reg[9]\: unisim.vcomponents.FDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => i_clk_IBUF_BUFG,
+      CE => \FSM_onehot_current_state[16]_i_1_n_0\,
+      CLR => i_rst_IBUF,
+      D => wb_addr_6,
+      Q => wb_addr_7
     );
 i_clk_IBUF_BUFG_inst: unisim.vcomponents.BUFG
      port map (
@@ -702,45 +850,71 @@ i_start_IBUF_inst: unisim.vcomponents.IBUF
       I => i_start,
       O => i_start_IBUF
     );
-\o_address[0]_i_1\: unisim.vcomponents.LUT2
+\o_address[0]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"6"
+      INIT => X"FFFFFFFE"
     )
         port map (
-      I0 => current_state(0),
-      I1 => current_state(3),
+      I0 => \FSM_onehot_current_state_reg_n_0_[1]\,
+      I1 => wb_addr_5,
+      I2 => \FSM_onehot_current_state_reg_n_0_[14]\,
+      I3 => wb_addr_3,
+      I4 => wb_addr_1,
       O => \o_address[0]_i_1_n_0\
     );
-\o_address[1]_i_1\: unisim.vcomponents.LUT2
+\o_address[1]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"2"
+      INIT => X"FFFE"
     )
         port map (
-      I0 => current_state(1),
-      I1 => current_state(3),
+      I0 => wb_addr_1,
+      I1 => wb_addr_0,
+      I2 => wb_addr_5,
+      I3 => wb_addr_4,
       O => \o_address[1]_i_1_n_0\
     );
-\o_address[2]_i_1\: unisim.vcomponents.LUT2
+\o_address[2]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"2"
+      INIT => X"FFFE"
     )
         port map (
-      I0 => current_state(2),
-      I1 => current_state(3),
+      I0 => wb_addr_3,
+      I1 => wb_addr_2,
+      I2 => wb_addr_5,
+      I3 => wb_addr_4,
       O => \o_address[2]_i_1_n_0\
     );
-\o_address[3]_i_1\: unisim.vcomponents.LUT6
+\o_address[3]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0000000000007D55"
+      INIT => X"00FE"
     )
         port map (
-      I0 => current_state(3),
-      I1 => current_state(0),
-      I2 => current_state(2),
-      I3 => current_state(1),
-      I4 => current_state(4),
-      I5 => i_rst_IBUF,
-      O => \o_address[3]_i_1_n_0\
+      I0 => \FSM_onehot_current_state_reg_n_0_[1]\,
+      I1 => \o_address[3]_i_3_n_0\,
+      I2 => \FSM_onehot_current_state_reg_n_0_[14]\,
+      I3 => i_rst_IBUF,
+      O => o_address0
+    );
+\o_address[3]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => \FSM_onehot_current_state_reg_n_0_[11]\,
+      I1 => \FSM_onehot_current_state_reg_n_0_[14]\,
+      O => \o_address[3]_i_2_n_0\
+    );
+\o_address[3]_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFFFE"
+    )
+        port map (
+      I0 => wb_addr_0,
+      I1 => wb_addr_1,
+      I2 => \FSM_onehot_current_state_reg_n_0_[0]\,
+      I3 => \FSM_onehot_current_state_reg_n_0_[11]\,
+      I4 => \o_address[2]_i_1_n_0\,
+      O => \o_address[3]_i_3_n_0\
     );
 \o_address_OBUF[0]_inst\: unisim.vcomponents.OBUF
      port map (
@@ -828,7 +1002,7 @@ i_start_IBUF_inst: unisim.vcomponents.IBUF
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => \o_address[3]_i_1_n_0\,
+      CE => o_address0,
       D => \o_address[0]_i_1_n_0\,
       Q => o_address_OBUF(0),
       R => '0'
@@ -839,7 +1013,7 @@ i_start_IBUF_inst: unisim.vcomponents.IBUF
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => \o_address[3]_i_1_n_0\,
+      CE => o_address0,
       D => \o_address[1]_i_1_n_0\,
       Q => o_address_OBUF(1),
       R => '0'
@@ -850,7 +1024,7 @@ i_start_IBUF_inst: unisim.vcomponents.IBUF
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => \o_address[3]_i_1_n_0\,
+      CE => o_address0,
       D => \o_address[2]_i_1_n_0\,
       Q => o_address_OBUF(2),
       R => '0'
@@ -861,8 +1035,8 @@ i_start_IBUF_inst: unisim.vcomponents.IBUF
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => \o_address[3]_i_1_n_0\,
-      D => current_state(3),
+      CE => o_address0,
+      D => \o_address[3]_i_2_n_0\,
       Q => o_address_OBUF(3),
       R => '0'
     );
@@ -3935,17 +4109,13 @@ i_start_IBUF_inst: unisim.vcomponents.IBUF
       I3 => i_data_IBUF(0),
       O => \o_data[6]_i_99_n_0\
     );
-\o_data[7]_i_1\: unisim.vcomponents.LUT6
+\o_data[7]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"0000000000000800"
+      INIT => X"2"
     )
         port map (
-      I0 => current_state(0),
-      I1 => current_state(2),
-      I2 => current_state(4),
-      I3 => current_state(3),
-      I4 => current_state(1),
-      I5 => i_rst_IBUF,
+      I0 => \FSM_onehot_current_state_reg_n_0_[13]\,
+      I1 => i_rst_IBUF,
       O => \o_data[7]_i_1_n_0\
     );
 \o_data[7]_i_10\: unisim.vcomponents.LUT6
@@ -4963,26 +5133,24 @@ o_done_OBUF_inst: unisim.vcomponents.OBUF
       I => o_done_OBUF,
       O => o_done
     );
-o_done_i_1: unisim.vcomponents.LUT6
+o_done_i_1: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"0808000000000008"
+      INIT => X"F4"
     )
         port map (
-      I0 => current_state(3),
-      I1 => current_state(1),
-      I2 => current_state(4),
-      I3 => i_start_IBUF,
-      I4 => current_state(2),
-      I5 => current_state(0),
+      I0 => i_start_IBUF,
+      I1 => \FSM_onehot_current_state_reg_n_0_[10]\,
+      I2 => \FSM_onehot_current_state_reg_n_0_[15]\,
       O => o_done_i_1_n_0
     );
-o_done_i_2: unisim.vcomponents.LUT2
+o_done_i_2: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"E"
+      INIT => X"F8"
     )
         port map (
-      I0 => current_state(0),
+      I0 => \FSM_onehot_current_state_reg_n_0_[10]\,
       I1 => i_start_IBUF,
+      I2 => \FSM_onehot_current_state_reg_n_0_[15]\,
       O => o_done_i_2_n_0
     );
 o_done_reg: unisim.vcomponents.FDCE
@@ -5003,25 +5171,24 @@ o_en_OBUF_inst: unisim.vcomponents.OBUF
     );
 o_en_i_1: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"50555145"
+      INIT => X"FFFFFFFE"
     )
         port map (
-      I0 => current_state(4),
-      I1 => current_state(2),
-      I2 => current_state(0),
-      I3 => current_state(3),
-      I4 => current_state(1),
+      I0 => wb_addr_6,
+      I1 => \FSM_onehot_current_state_reg_n_0_[13]\,
+      I2 => wb_addr_7,
+      I3 => \FSM_onehot_current_state_reg_n_0_[15]\,
+      I4 => \o_address[3]_i_3_n_0\,
       O => o_en_i_1_n_0
     );
-o_en_i_2: unisim.vcomponents.LUT4
+o_en_i_2: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"3DFD"
+      INIT => X"FE"
     )
         port map (
-      I0 => current_state(0),
-      I1 => current_state(2),
-      I2 => current_state(1),
-      I3 => current_state(3),
+      I0 => \FSM_onehot_current_state_reg_n_0_[13]\,
+      I1 => wb_addr_6,
+      I2 => \o_address[3]_i_3_n_0\,
       O => o_en_i_2_n_0
     );
 o_en_reg: unisim.vcomponents.FDCE
@@ -5042,25 +5209,28 @@ o_we_OBUF_inst: unisim.vcomponents.OBUF
     );
 o_we_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"000000000000FBBD"
+      INIT => X"0000FFFF0000FFFE"
     )
         port map (
-      I0 => current_state(0),
-      I1 => current_state(3),
-      I2 => current_state(2),
-      I3 => current_state(1),
-      I4 => current_state(4),
-      I5 => i_rst_IBUF,
-      O => o_we_i_1_n_0
+      I0 => \FSM_onehot_current_state_reg_n_0_[15]\,
+      I1 => wb_addr_7,
+      I2 => \FSM_onehot_current_state_reg_n_0_[13]\,
+      I3 => wb_addr_6,
+      I4 => i_rst_IBUF,
+      I5 => o_we_i_2_n_0,
+      O => o_we0
     );
-o_we_i_2: unisim.vcomponents.LUT3
+o_we_i_2: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"40"
+      INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => current_state(0),
-      I1 => current_state(2),
-      I2 => current_state(3),
+      I0 => \o_address[2]_i_1_n_0\,
+      I1 => \FSM_onehot_current_state_reg_n_0_[11]\,
+      I2 => \FSM_onehot_current_state_reg_n_0_[0]\,
+      I3 => wb_addr_1,
+      I4 => wb_addr_0,
+      I5 => \FSM_onehot_current_state_reg_n_0_[14]\,
       O => o_we_i_2_n_0
     );
 o_we_reg: unisim.vcomponents.FDRE
@@ -5069,22 +5239,18 @@ o_we_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => i_clk_IBUF_BUFG,
-      CE => o_we_i_1_n_0,
-      D => o_we_i_2_n_0,
+      CE => o_we0,
+      D => \FSM_onehot_current_state_reg_n_0_[14]\,
       Q => o_we_OBUF,
       R => '0'
     );
-\wb_addr_0[7]_i_1\: unisim.vcomponents.LUT6
+\wb_addr_0[7]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"0000000000010000"
+      INIT => X"2"
     )
         port map (
-      I0 => current_state(4),
-      I1 => current_state(3),
-      I2 => current_state(0),
-      I3 => current_state(2),
-      I4 => current_state(1),
-      I5 => i_rst_IBUF,
+      I0 => wb_addr_0,
+      I1 => i_rst_IBUF,
       O => \wb_addr_0[7]_i_1_n_0\
     );
 \wb_addr_0_reg[0]\: unisim.vcomponents.FDRE
@@ -5175,17 +5341,13 @@ o_we_reg: unisim.vcomponents.FDRE
       Q => \wb_addr_0__0\(7),
       R => '0'
     );
-\wb_addr_1[7]_i_1\: unisim.vcomponents.LUT6
+\wb_addr_1[7]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"0000000000100000"
+      INIT => X"2"
     )
         port map (
-      I0 => current_state(4),
-      I1 => current_state(3),
-      I2 => current_state(1),
-      I3 => current_state(2),
-      I4 => current_state(0),
-      I5 => i_rst_IBUF,
+      I0 => wb_addr_1,
+      I1 => i_rst_IBUF,
       O => \wb_addr_1[7]_i_1_n_0\
     );
 \wb_addr_1_reg[0]\: unisim.vcomponents.FDRE
@@ -5276,17 +5438,13 @@ o_we_reg: unisim.vcomponents.FDRE
       Q => \wb_addr_1__0\(7),
       R => '0'
     );
-\wb_addr_2[7]_i_1\: unisim.vcomponents.LUT6
+\wb_addr_2[7]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"0000000000010000"
+      INIT => X"2"
     )
         port map (
-      I0 => current_state(4),
-      I1 => current_state(3),
-      I2 => current_state(1),
-      I3 => current_state(0),
-      I4 => current_state(2),
-      I5 => i_rst_IBUF,
+      I0 => wb_addr_2,
+      I1 => i_rst_IBUF,
       O => \wb_addr_2[7]_i_1_n_0\
     );
 \wb_addr_2_reg[0]\: unisim.vcomponents.FDRE
@@ -5377,17 +5535,13 @@ o_we_reg: unisim.vcomponents.FDRE
       Q => \wb_addr_2__0\(7),
       R => '0'
     );
-\wb_addr_3[7]_i_1\: unisim.vcomponents.LUT6
+\wb_addr_3[7]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"0000000000100000"
+      INIT => X"2"
     )
         port map (
-      I0 => current_state(4),
-      I1 => current_state(3),
-      I2 => current_state(2),
-      I3 => current_state(1),
-      I4 => current_state(0),
-      I5 => i_rst_IBUF,
+      I0 => wb_addr_3,
+      I1 => i_rst_IBUF,
       O => \wb_addr_3[7]_i_1_n_0\
     );
 \wb_addr_3_reg[0]\: unisim.vcomponents.FDRE
@@ -5478,17 +5632,13 @@ o_we_reg: unisim.vcomponents.FDRE
       Q => \wb_addr_3__0\(7),
       R => '0'
     );
-\wb_addr_4[7]_i_1\: unisim.vcomponents.LUT6
+\wb_addr_4[7]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"0000000000100000"
+      INIT => X"2"
     )
         port map (
-      I0 => current_state(4),
-      I1 => current_state(3),
-      I2 => current_state(2),
-      I3 => current_state(0),
-      I4 => current_state(1),
-      I5 => i_rst_IBUF,
+      I0 => wb_addr_4,
+      I1 => i_rst_IBUF,
       O => \wb_addr_4[7]_i_1_n_0\
     );
 \wb_addr_4_reg[0]\: unisim.vcomponents.FDRE
@@ -5579,17 +5729,13 @@ o_we_reg: unisim.vcomponents.FDRE
       Q => \wb_addr_4__0\(7),
       R => '0'
     );
-\wb_addr_5[7]_i_1\: unisim.vcomponents.LUT6
+\wb_addr_5[7]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"0000000000002000"
+      INIT => X"2"
     )
         port map (
-      I0 => current_state(2),
-      I1 => current_state(4),
-      I2 => current_state(0),
-      I3 => current_state(1),
-      I4 => current_state(3),
-      I5 => i_rst_IBUF,
+      I0 => wb_addr_5,
+      I1 => i_rst_IBUF,
       O => \wb_addr_5[7]_i_1_n_0\
     );
 \wb_addr_5_reg[0]\: unisim.vcomponents.FDRE
@@ -5680,17 +5826,13 @@ o_we_reg: unisim.vcomponents.FDRE
       Q => \wb_addr_5__0\(7),
       R => '0'
     );
-\wb_addr_6[7]_i_1\: unisim.vcomponents.LUT6
+\wb_addr_6[7]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"0000000000010000"
+      INIT => X"2"
     )
         port map (
-      I0 => current_state(0),
-      I1 => current_state(4),
-      I2 => current_state(2),
-      I3 => current_state(1),
-      I4 => current_state(3),
-      I5 => i_rst_IBUF,
+      I0 => wb_addr_6,
+      I1 => i_rst_IBUF,
       O => \wb_addr_6[7]_i_1_n_0\
     );
 \wb_addr_6_reg[0]\: unisim.vcomponents.FDRE
@@ -5781,17 +5923,13 @@ o_we_reg: unisim.vcomponents.FDRE
       Q => \wb_addr_6__0\(7),
       R => '0'
     );
-\wb_addr_7[7]_i_1\: unisim.vcomponents.LUT6
+\wb_addr_7[7]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"0000000000100000"
+      INIT => X"2"
     )
         port map (
-      I0 => current_state(4),
-      I1 => current_state(1),
-      I2 => current_state(3),
-      I3 => current_state(2),
-      I4 => current_state(0),
-      I5 => i_rst_IBUF,
+      I0 => wb_addr_7,
+      I1 => i_rst_IBUF,
       O => \wb_addr_7[7]_i_1_n_0\
     );
 \wb_addr_7_reg[0]\: unisim.vcomponents.FDRE
