@@ -2,8 +2,8 @@
 # Webtalk v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Fri Feb 28 20:53:52 2020
-# Process ID: 5652
+# Start of session at: Tue Mar  3 21:08:27 2020
+# Process ID: 4756
 # Current directory: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_3/behav/xsim
 # Command line: wbtcv.exe -mode batch -source D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_3/behav/xsim/xsim.dir/project_tb_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_3/behav/xsim/webtalk.log
