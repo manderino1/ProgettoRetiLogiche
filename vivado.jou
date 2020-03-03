@@ -2,13 +2,49 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Tue Feb 11 17:08:52 2020
-# Process ID: 9868
-# Current directory: D:/Dynamis/ProgettoRetiLogiche
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7936 D:\Dynamis\ProgettoRetiLogiche\progetto_reti.xpr
-# Log file: D:/Dynamis/ProgettoRetiLogiche/vivado.log
-# Journal file: D:/Dynamis/ProgettoRetiLogiche\vivado.jou
+# Start of session at: Tue Mar  3 20:12:04 2020
+# Process ID: 19316
+# Current directory: D:/Progetto/ProgettoRetiLogiche
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23200 D:\Progetto\ProgettoRetiLogiche\progetto_reti.xpr
+# Log file: D:/Progetto/ProgettoRetiLogiche/vivado.log
+# Journal file: D:/Progetto/ProgettoRetiLogiche\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project D:/Dynamis/ProgettoRetiLogiche/progetto_reti.xpr
+open_project D:/Progetto/ProgettoRetiLogiche/progetto_reti.xpr
 update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+launch_simulation -simset [get_filesets sim_3 ] -mode post-synthesis -type functional
+source project_tb.tcl
+run 1s
+run 100ns
+close_sim
+launch_simulation -simset [get_filesets sim_3 ] -mode post-synthesis -type functional
+source project_tb.tcl
+launch_simulation -mode post-synthesis -type functional
+source project_tb.tcl
+run 100ns
+run 10 us
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+close_sim
+close_design
+launch_simulation -mode post-synthesis -type functional
+source project_tb.tcl
+run 1s
+run 100 us

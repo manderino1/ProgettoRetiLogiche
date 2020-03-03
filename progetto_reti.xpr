@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="44" Path="D:/Dynamis/ProgettoRetiLogiche/progetto_reti.xpr">
+<Project Version="7" Minor="44" Path="D:/Progetto/ProgettoRetiLogiche/progetto_reti.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="2a1eee42548148f4a0f5d623932c4546"/>
@@ -20,7 +20,7 @@
     <Option Name="TargetLanguage" Val="VHDL"/>
     <Option Name="SimulatorLanguage" Val="VHDL"/>
     <Option Name="BoardPart" Val=""/>
-    <Option Name="ActiveSimSet" Val="sim_3"/>
+    <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
@@ -31,7 +31,7 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="64"/>
+    <Option Name="WTXSimLaunchSim" Val="68"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
