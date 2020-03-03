@@ -49,14 +49,14 @@ architecture Behavioral of project_reti_logiche is
         read_addr, wait_addr, process_addr, wait_for_start, write_addr, set_done, wait_for_done);  -- Define here the list of the states
 	signal current_state : STATE_TYPE := read_wb0;    -- Signal that contains the current state
 	signal wb_load_done : STD_LOGIC := '0';
-	signal wb_addr_0 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_1 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_2 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_3 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_4 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_5 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_6 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_7 : STD_LOGIC_VECTOR(7 downto 0);							      
+	signal wb_addr_0 : STD_LOGIC_VECTOR(6 downto 0);
+	signal wb_addr_1 : STD_LOGIC_VECTOR(6 downto 0);
+	signal wb_addr_2 : STD_LOGIC_VECTOR(6 downto 0);
+	signal wb_addr_3 : STD_LOGIC_VECTOR(6 downto 0);
+	signal wb_addr_4 : STD_LOGIC_VECTOR(6 downto 0);
+	signal wb_addr_5 : STD_LOGIC_VECTOR(6 downto 0);
+	signal wb_addr_6 : STD_LOGIC_VECTOR(6 downto 0);
+	signal wb_addr_7 : STD_LOGIC_VECTOR(6 downto 0);							      
 begin
     process(i_clk, i_rst)
     begin
@@ -81,48 +81,48 @@ begin
                     o_address <= "0000000000000001";
                     current_state <= store_wb0_load_wb1;    
                 when store_wb0_load_wb1 =>
-                    wb_addr_0 <= i_data;
+                    wb_addr_0 <= i_data(6 downto 0);
                     o_en <= '1';
                     o_we <= '0';
                     o_address <= "0000000000000010";
                     current_state <= store_wb1_load_wb2;
                 when store_wb1_load_wb2 =>
-                    wb_addr_1 <= i_data;
+                    wb_addr_1 <= i_data(6 downto 0);
                     o_en <= '1';
                     o_we <= '0';
                     o_address <= "0000000000000011";
                     current_state <= store_wb2_load_wb3;
                 when store_wb2_load_wb3 =>
-                    wb_addr_2 <= i_data;
+                    wb_addr_2 <= i_data(6 downto 0);
                     o_en <= '1';
                     o_we <= '0';
                     o_address <= "0000000000000100";
                     current_state <= store_wb3_load_wb4;
                 when store_wb3_load_wb4 =>
-                    wb_addr_3 <= i_data;
+                    wb_addr_3 <= i_data(6 downto 0);
                     o_en <= '1';
                     o_we <= '0';
                     o_address <= "0000000000000101";
                     current_state <= store_wb4_load_wb5;
                 when store_wb4_load_wb5 =>
-                    wb_addr_4 <= i_data;
+                    wb_addr_4 <= i_data(6 downto 0);
                     o_en <= '1';
                     o_we <= '0';
                     o_address <= "0000000000000110";
                     current_state <= store_wb5_load_wb6;
                 when store_wb5_load_wb6 =>
-                    wb_addr_5 <= i_data;
+                    wb_addr_5 <= i_data(6 downto 0);
                     o_en <= '1';
                     o_we <= '0';
                     o_address <= "0000000000000111";
                     current_state <= store_wb6_load_wb7;
                 when store_wb6_load_wb7 =>
-                    wb_addr_6 <= i_data;
+                    wb_addr_6 <= i_data(6 downto 0);
                     o_en <= '1';
                     o_we <= '0';
                     current_state <= store_wb7;
                 when store_wb7 =>
-                    wb_addr_7 <= i_data;
+                    wb_addr_7 <= i_data(6 downto 0);
                     o_en <= '0';
                     o_we <= '0';
                     if i_start = '1' then
@@ -140,69 +140,69 @@ begin
                 when process_addr =>
                     -- Here we check if in wz and then publish the output
                     -- PUT HERE ALL THE PROCESSING PART
-                    if i_data = std_logic_vector(UNSIGNED(wb_addr_0)) then
+                    if i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_0)) then
                         o_data <= '1' & "000" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_0)+1) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_0)+1) then
                         o_data <= '1' & "000" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_0)+2) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_0)+2) then
                         o_data <= '1' & "000" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_0)+3) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_0)+3) then
                         o_data <= '1' & "000" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_1)) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_1)) then
                         o_data <= '1' & "001" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_1)+1) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_1)+1) then
                         o_data <= '1' & "001" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_1)+2) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_1)+2) then
                         o_data <= '1' & "001" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_1)+3) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_1)+3) then
                         o_data <= '1' & "001" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_2)) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_2)) then
                         o_data <= '1' & "010" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_2)+1) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_2)+1) then
                         o_data <= '1' & "010" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_2)+2) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_2)+2) then
                         o_data <= '1' & "010" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_2)+3) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_2)+3) then
                         o_data <= '1' & "010" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_3)) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_3)) then
                         o_data <= '1' & "011" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_3)+1) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_3)+1) then
                         o_data <= '1' & "011" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_3)+2) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_3)+2) then
                         o_data <= '1' & "011" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_3)+3) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_3)+3) then
                         o_data <= '1' & "011" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_4)) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_4)) then
                         o_data <= '1' & "100" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_4)+1) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_4)+1) then
                         o_data <= '1' & "100" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_4)+2) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_4)+2) then
                         o_data <= '1' & "100" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_4)+3) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_4)+3) then
                         o_data <= '1' & "100" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_5)) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_5)) then
                         o_data <= '1' & "101" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_5)+1) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_5)+1) then
                         o_data <= '1' & "101" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_5)+2) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_5)+2) then
                         o_data <= '1' & "101" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_5)+3) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_5)+3) then
                         o_data <= '1' & "101" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_6)) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_6)) then
                         o_data <= '1' & "110" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_6)+1) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_6)+1) then
                         o_data <= '1' & "110" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_6)+2) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_6)+2) then
                         o_data <= '1' & "110" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_6)+3) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_6)+3) then
                         o_data <= '1' & "110" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_7)) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_7)) then
                         o_data <= '1' & "111" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_7)+1) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_7)+1) then
                         o_data <= '1' & "111" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_7)+2) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_7)+2) then
                         o_data <= '1' & "111" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_7)+3) then
+                    elsif i_data(6 downto 0) = std_logic_vector(UNSIGNED(wb_addr_7)+3) then
                         o_data <= '1' & "111" & "1000";
                     else
                         o_data <= '0' & i_data(6 downto 0);
