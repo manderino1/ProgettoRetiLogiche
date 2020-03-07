@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Wed Mar  4 10:49:35 2020
-# Process ID: 11360
+# Start of session at: Sat Mar  7 10:06:54 2020
+# Process ID: 14488
 # Current directory: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.runs/synth_1
 # Command line: vivado.exe -log project_reti_logiche.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source project_reti_logiche.tcl
 # Log file: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.runs/synth_1/project_reti_logiche.vds
@@ -15,27 +15,26 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15504 
+INFO: Helper process launched with PID 18204 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 505.629 ; gain = 207.805
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 506.938 ; gain = 210.102
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'project_reti_logiche' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'project_reti_logiche' (1#1) [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:46]
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port i_data[7]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 579.328 ; gain = 281.504
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 580.555 ; gain = 283.719
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 579.328 ; gain = 281.504
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 580.555 ; gain = 283.719
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tfbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 579.328 ; gain = 281.504
----------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a200tfbg484-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 580.555 ; gain = 283.719
+---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'loading_state_reg' in module 'project_reti_logiche'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'project_reti_logiche'
 ---------------------------------------------------------------------------------------------------
@@ -67,7 +66,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'loading_state_reg' using e
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'project_reti_logiche'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 579.328 ; gain = 281.504
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 580.555 ; gain = 283.719
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -81,11 +80,10 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      7 Bit       Adders := 24    
+	   2 Input      8 Bit       Adders := 24    
 +---Registers : 
 	               16 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                7 Bit    Registers := 8     
+	                8 Bit    Registers := 9     
 	                1 Bit    Registers := 3     
 +---Muxes : 
 	  10 Input     16 Bit        Muxes := 1     
@@ -104,11 +102,10 @@ Hierarchical RTL Component report
 Module project_reti_logiche 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      7 Bit       Adders := 24    
+	   2 Input      8 Bit       Adders := 24    
 +---Registers : 
 	               16 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                7 Bit    Registers := 8     
+	                8 Bit    Registers := 9     
 	                1 Bit    Registers := 3     
 +---Muxes : 
 	  10 Input     16 Bit        Muxes := 1     
@@ -146,9 +143,8 @@ WARNING: [Synth 8-3917] design project_reti_logiche has port o_address[7] driven
 WARNING: [Synth 8-3917] design project_reti_logiche has port o_address[6] driven by constant 0
 WARNING: [Synth 8-3917] design project_reti_logiche has port o_address[5] driven by constant 0
 WARNING: [Synth 8-3917] design project_reti_logiche has port o_address[4] driven by constant 0
-WARNING: [Synth 8-3331] design project_reti_logiche has unconnected port i_data[7]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 888.691 ; gain = 590.867
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 991.371 ; gain = 694.535
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -161,7 +157,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 888.691 ; gain = 590.867
+Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 991.371 ; gain = 694.535
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -173,7 +169,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 888.691 ; gain = 590.867
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 991.371 ; gain = 694.535
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -197,13 +193,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 888.691 ; gain = 590.867
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 991.371 ; gain = 694.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 888.691 ; gain = 590.867
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 991.371 ; gain = 694.535
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -222,25 +218,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 888.691 ; gain = 590.867
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 991.371 ; gain = 694.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 888.691 ; gain = 590.867
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 991.371 ; gain = 694.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 888.691 ; gain = 590.867
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 991.371 ; gain = 694.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 888.691 ; gain = 590.867
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 991.371 ; gain = 694.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -257,15 +253,15 @@ Report Cell Usage:
 |      |Cell |Count |
 +------+-----+------+
 |1     |BUFG |     1|
-|2     |LUT2 |    39|
-|3     |LUT3 |    16|
-|4     |LUT4 |    38|
-|5     |LUT5 |    56|
-|6     |LUT6 |   137|
+|2     |LUT2 |    25|
+|3     |LUT3 |    13|
+|4     |LUT4 |    57|
+|5     |LUT5 |    86|
+|6     |LUT6 |   174|
 |7     |FDCE |    14|
 |8     |FDPE |     1|
-|9     |FDRE |    69|
-|10    |IBUF |    10|
+|9     |FDRE |    77|
+|10    |IBUF |    11|
 |11    |OBUF |    27|
 +------+-----+------+
 
@@ -273,29 +269,29 @@ Report Instance Areas:
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   408|
+|1     |top      |       |   486|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 888.691 ; gain = 590.867
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 991.371 ; gain = 694.535
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 14 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 888.691 ; gain = 590.867
-Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 888.691 ; gain = 590.867
+Synthesis finished with 0 errors, 0 critical warnings and 12 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 991.371 ; gain = 694.535
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 991.371 ; gain = 694.535
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 888.691 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 991.371 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 899.555 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 991.371 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-13 Infos, 14 Warnings, 0 Critical Warnings and 0 Errors encountered.
+13 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 899.555 ; gain = 601.730
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 899.555 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 991.371 ; gain = 694.535
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 991.371 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/Dynamis/ProgettoRetiLogiche/progetto_reti.runs/synth_1/project_reti_logiche.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file project_reti_logiche_utilization_synth.rpt -pb project_reti_logiche_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Mar  4 10:50:09 2020...
+INFO: [Common 17-206] Exiting Vivado at Sat Mar  7 10:07:40 2020...
