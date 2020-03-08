@@ -49,16 +49,15 @@ architecture Behavioral of project_reti_logiche is
         store_wb3_load_wb4, store_wb4_load_wb5, store_wb5_load_wb6, store_wb6_load_wb7, store_wb7, wait_wb);
 	signal current_state : STATE_TYPE := loading;    -- Signal that contains the current state
 	signal loading_state : LOADING_TYPE := read_wb0;  -- Signal that contains the loading state
-	signal wb_addr_0 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_1 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_2 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_3 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_4 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_5 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_6 : STD_LOGIC_VECTOR(7 downto 0);
-	signal wb_addr_7 : STD_LOGIC_VECTOR(7 downto 0);							      
+	
+	type WB_ADDR_ARRAY is array (7 downto 0) of STD_LOGIC_VECTOR(7 downto 0);
+	signal wb_addresses : WB_ADDR_ARRAY;						      
 begin
     process(i_clk, i_rst)
+        variable sub_result : NATURAL;
+        variable wz_result : STD_LOGIC_VECTOR(2 downto 0);
+        variable one_hot : STD_LOGIC_VECTOR(3 downto 0);
+        variable wz_bit : STD_LOGIC;
     begin
         if i_rst = '1' then
             -- Reset all the port and signals to default state
@@ -81,48 +80,48 @@ begin
                             o_address <= "0000000000000001";
                             loading_state <= store_wb0_load_wb1;    
                         when store_wb0_load_wb1 =>
-                            wb_addr_0 <= i_data;
+                            wb_addresses(0) <= i_data;
                             o_en <= '1';
                             o_we <= '0';
                             o_address <= "0000000000000010";
                             loading_state <= store_wb1_load_wb2;
                         when store_wb1_load_wb2 =>
-                            wb_addr_1 <= i_data;
+                            wb_addresses(1) <= i_data;
                             o_en <= '1';
                             o_we <= '0';
                             o_address <= "0000000000000011";
                             loading_state <= store_wb2_load_wb3;
                         when store_wb2_load_wb3 =>
-                            wb_addr_2 <= i_data;
+                            wb_addresses(2) <= i_data;
                             o_en <= '1';
                             o_we <= '0';
                             o_address <= "0000000000000100";
                             loading_state <= store_wb3_load_wb4;
                         when store_wb3_load_wb4 =>
-                            wb_addr_3 <= i_data;
+                            wb_addresses(3) <= i_data;
                             o_en <= '1';
                             o_we <= '0';
                             o_address <= "0000000000000101";
                             loading_state <= store_wb4_load_wb5;
                         when store_wb4_load_wb5 =>
-                            wb_addr_4 <= i_data;
+                            wb_addresses(4) <= i_data;
                             o_en <= '1';
                             o_we <= '0';
                             o_address <= "0000000000000110";
                             loading_state <= store_wb5_load_wb6;
                         when store_wb5_load_wb6 =>
-                            wb_addr_5 <= i_data;
+                            wb_addresses(5) <= i_data;
                             o_en <= '1';
                             o_we <= '0';
                             o_address <= "0000000000000111";
                             loading_state <= store_wb6_load_wb7;
                         when store_wb6_load_wb7 =>
-                            wb_addr_6 <= i_data;
+                            wb_addresses(6) <= i_data;
                             o_en <= '1';
                             o_we <= '0';
                             loading_state <= store_wb7;
                         when store_wb7 =>
-                            wb_addr_7 <= i_data;
+                            wb_addresses(7) <= i_data;
                             o_en <= '0';
                             o_we <= '0';
                             if i_start = '1' then
@@ -140,74 +139,23 @@ begin
                     current_state <= process_addr;
                 when process_addr =>
                     -- Here we check if in wz and then publish the output
-                    -- PUT HERE ALL THE PROCESSING PART
-                    if i_data = std_logic_vector(UNSIGNED(wb_addr_0)) then
-                        o_data <= '1' & "000" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_0)+1) then
-                        o_data <= '1' & "000" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_0)+2) then
-                        o_data <= '1' & "000" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_0)+3) then
-                        o_data <= '1' & "000" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_1)) then
-                        o_data <= '1' & "001" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_1)+1) then
-                        o_data <= '1' & "001" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_1)+2) then
-                        o_data <= '1' & "001" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_1)+3) then
-                        o_data <= '1' & "001" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_2)) then
-                        o_data <= '1' & "010" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_2)+1) then
-                        o_data <= '1' & "010" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_2)+2) then
-                        o_data <= '1' & "010" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_2)+3) then
-                        o_data <= '1' & "010" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_3)) then
-                        o_data <= '1' & "011" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_3)+1) then
-                        o_data <= '1' & "011" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_3)+2) then
-                        o_data <= '1' & "011" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_3)+3) then
-                        o_data <= '1' & "011" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_4)) then
-                        o_data <= '1' & "100" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_4)+1) then
-                        o_data <= '1' & "100" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_4)+2) then
-                        o_data <= '1' & "100" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_4)+3) then
-                        o_data <= '1' & "100" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_5)) then
-                        o_data <= '1' & "101" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_5)+1) then
-                        o_data <= '1' & "101" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_5)+2) then
-                        o_data <= '1' & "101" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_5)+3) then
-                        o_data <= '1' & "101" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_6)) then
-                        o_data <= '1' & "110" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_6)+1) then
-                        o_data <= '1' & "110" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_6)+2) then
-                        o_data <= '1' & "110" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_6)+3) then
-                        o_data <= '1' & "110" & "1000";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_7)) then
-                        o_data <= '1' & "111" & "0001";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_7)+1) then
-                        o_data <= '1' & "111" & "0010";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_7)+2) then
-                        o_data <= '1' & "111" & "0100";
-                    elsif i_data = std_logic_vector(UNSIGNED(wb_addr_7)+3) then
-                        o_data <= '1' & "111" & "1000";
+                    wz_bit := '0';
+                    for i in 0 to 7 loop                    
+                        sub_result := to_integer(UNSIGNED(i_data) - UNSIGNED(wb_addresses(i)));
+                        if sub_result < 4 then
+                            wz_bit := '1';
+                            wz_result := STD_LOGIC_VECTOR(to_unsigned(i, 3));
+                            exit;
+                        end if;
+                    end loop;
+                    if wz_bit = '0' then
+                        o_data <= wz_bit & i_data(6 downto 0);
                     else
-                        o_data <= '0' & i_data(6 downto 0);
+                        one_hot := (others => '0');
+                        one_hot(sub_result) := '1';
+                        o_data <= wz_bit & wz_result & one_hot;
                     end if;
+                    -- PUT HERE ALL THE PROCESSING PART
                     o_en <= '1';
                     o_we <= '0';
                     current_state <= write_addr;
