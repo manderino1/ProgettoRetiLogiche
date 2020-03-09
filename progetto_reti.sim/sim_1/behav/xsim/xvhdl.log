@@ -1,2 +1,4 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_1/imports/Dynamis/Test Bench 2 - Prj 2019-20.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Progetto/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'project_reti_logiche'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Progetto/ProgettoRetiLogiche/progetto_reti.srcs/sim_1/imports/Dynamis/Test Bench 2 - Prj 2019-20.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'project_tb'

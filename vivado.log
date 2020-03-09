@@ -2,21 +2,294 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Tue Feb 11 17:08:52 2020
-# Process ID: 9868
-# Current directory: D:/Dynamis/ProgettoRetiLogiche
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7936 D:\Dynamis\ProgettoRetiLogiche\progetto_reti.xpr
-# Log file: D:/Dynamis/ProgettoRetiLogiche/vivado.log
-# Journal file: D:/Dynamis/ProgettoRetiLogiche\vivado.jou
+# Start of session at: Mon Mar  9 16:34:55 2020
+# Process ID: 47480
+# Current directory: D:/Progetto/ProgettoRetiLogiche
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent39320 D:\Progetto\ProgettoRetiLogiche\progetto_reti.xpr
+# Log file: D:/Progetto/ProgettoRetiLogiche/vivado.log
+# Journal file: D:/Progetto/ProgettoRetiLogiche\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project D:/Dynamis/ProgettoRetiLogiche/progetto_reti.xpr
-INFO: [Project 1-313] Project file moved from 'D:/Onedrive/OneDrive - Politecnico di Milano/Personale/progetto_reti' since last save.
+open_project D:/Progetto/ProgettoRetiLogiche/progetto_reti.xpr
+INFO: [Project 1-313] Project file moved from 'D:/Dynamis/ProgettoRetiLogiche' since last save.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Programmi/Xilinx/Vivado/2019.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 711.902 ; gain = 101.020
 update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Mon Mar  9 17:54:42 2020] Launched synth_1...
+Run output will be captured here: D:/Progetto/ProgettoRetiLogiche/progetto_reti.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Mon Mar  9 18:17:52 2020] Launched synth_1...
+Run output will be captured here: D:/Progetto/ProgettoRetiLogiche/progetto_reti.runs/synth_1/runme.log
+launch_simulation -simset [get_filesets sim_4 ]
+Command: launch_simulation -simset sim_4
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_4/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_4'
+INFO: [SIM-utils-54] Inspecting design source files for 'project_tb' in fileset 'sim_4'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_4'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_4/behav/xsim'
+"xvhdl --incr --relax -prj project_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Progetto/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'project_reti_logiche'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Progetto/ProgettoRetiLogiche/progetto_reti.srcs/sim_4/imports/Auto_300k/testbench.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'project_tb'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_4/behav/xsim'
+"xelab -wto 2a1eee42548148f4a0f5d623932c4546 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot project_tb_behav xil_defaultlib.project_tb -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 2a1eee42548148f4a0f5d623932c4546 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot project_tb_behav xil_defaultlib.project_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_textio
+Compiling package std.env
+Compiling architecture behavioral of entity xil_defaultlib.project_reti_logiche [project_reti_logiche_default]
+Compiling architecture projecttb of entity xil_defaultlib.project_tb
+Built simulation snapshot project_tb_behav
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_4/behav/xsim/xsim.dir/project_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_4/behav/xsim/xsim.dir/project_tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Mon Mar  9 18:19:15 2020. For additional details about this file, please refer to the WebTalk help file at D:/Vivado/Vivado/2019.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Mon Mar  9 18:19:15 2020...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:13 . Memory (MB): peak = 765.246 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '13' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_4/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "project_tb_behav -key {Behavioral:sim_4:Functional:project_tb} -tclbatch {project_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+ERROR: File C:\Users\marco\Desktop\txt_30k_test\ram_content.txt could not be opened
+on HDL file D:/Progetto/ProgettoRetiLogiche/progetto_reti.srcs/sim_4/imports/Auto_300k/testbench.vhd line 68
+ERROR: [Simtcl 6-50] Simulation engine failed to start: The Simulation shut down unexpectedly during initialization.
+Please see the Tcl Console or the Messages for details.
+
+ERROR: [USF-XSim-62] 'simulate' step failed with errors. Please check the Tcl console or log files for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:19 . Memory (MB): peak = 778.891 ; gain = 13.645
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'project_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj project_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Progetto/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'project_reti_logiche'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Progetto/ProgettoRetiLogiche/progetto_reti.srcs/sim_1/imports/Dynamis/Test Bench 2 - Prj 2019-20.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'project_tb'
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim'
+"xelab -wto 2a1eee42548148f4a0f5d623932c4546 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot project_tb_behav xil_defaultlib.project_tb -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 2a1eee42548148f4a0f5d623932c4546 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot project_tb_behav xil_defaultlib.project_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling architecture behavioral of entity xil_defaultlib.project_reti_logiche [project_reti_logiche_default]
+Compiling architecture projecttb of entity xil_defaultlib.project_tb
+Built simulation snapshot project_tb_behav
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Mon Mar  9 18:19:59 2020. For additional details about this file, please refer to the WebTalk help file at D:/Vivado/Vivado/2019.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Mon Mar  9 18:19:59 2020...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 778.891 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "project_tb_behav -key {Behavioral:sim_1:Functional:project_tb} -tclbatch {project_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+ERROR: [Simulator 45-7] No such file 'D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd' in the design.
+
+ERROR: [USF-XSim-62] 'simulate' step failed with errors. Please check the Tcl console or log files for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 778.891 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation -mode post-synthesis -type functional
+Command: launch_simulation -mode post-synthesis -type functional
+INFO: [Vivado 12-5682] Launching post-synthesis functional simulation in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/synth/func/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a200tfbg484-1
+INFO: [Device 21-403] Loading part xc7a200tfbg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1089.344 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1171.109 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1341.406 ; gain = 562.516
+INFO: [SIM-utils-24] Writing simulation netlist file for design 'synth_1'...
+INFO: [SIM-utils-26] write_vhdl -mode funcsim -nolib -force -file "D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/synth/func/xsim/project_tb_func_synth.vhd"
+INFO: [SIM-utils-36] Netlist generated:D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/synth/func/xsim/project_tb_func_synth.vhd
+INFO: [SIM-utils-54] Inspecting design source files for 'project_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/synth/func/xsim'
+"xvhdl --incr --relax -prj project_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/synth/func/xsim/project_tb_func_synth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'project_reti_logiche'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Progetto/ProgettoRetiLogiche/progetto_reti.srcs/sim_1/imports/Dynamis/Test Bench 2 - Prj 2019-20.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'project_tb'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/synth/func/xsim'
+"xelab -wto 2a1eee42548148f4a0f5d623932c4546 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot project_tb_func_synth xil_defaultlib.project_tb -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/Vivado/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 2a1eee42548148f4a0f5d623932c4546 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot project_tb_func_synth xil_defaultlib.project_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling architecture fdce_v of entity unisim.FDCE [fdce_default]
+Compiling architecture ldce_v of entity unisim.LDCE [ldce_default]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00010101")(0,7)\]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00010010")(0,7)\]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00100100")(0,7)\]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0000100111111111")(0...]
+Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
+Compiling architecture ibuf_v of entity unisim.IBUF [\IBUF(1,9)(1,1)(1,4)(1,7)\]
+Compiling architecture obuf_v of entity unisim.OBUF [\OBUF(1,9)(1,7)(1,4)\]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="0010")(0,3)\]
+Compiling architecture lut1_v of entity unisim.LUT1 [\LUT1(init="0001")(0,3)\]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="0001")(0,3)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11101110001011100010...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00100010001000100010...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00001010000010101100...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00001010000010100011...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000111")(0,7)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111110000000001111...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111100111111111111...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000001111111110000...]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111111111111101")(0...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00110011001100110011...]
+Compiling architecture carry4_v of entity unisim.CARRY4 [carry4_default]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000110100000000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11001000100010001111...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000000000...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111111111111111111...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111111000000001111...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10111000")(0,7)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="10101010101010101010...]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="1110")(0,3)\]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="11110100")(0,7)\]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111111111111110")(0...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000010")(0,7)\]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1111101111111111")(0...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00101111")(0,7)\]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0000100000011000")(0...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="01000101")(0,7)\]
+Compiling architecture ldce_v of entity unisim.LDCE [\LDCE(is_g_inverted='1')\]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00010000")(0,7)\]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="11001000100010000000...]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="1000")(0,3)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000000000000000...]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0000001000000000")(0...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00001000000010000000...]
+Compiling architecture structure of entity xil_defaultlib.project_reti_logiche [project_reti_logiche_default]
+Compiling architecture projecttb of entity xil_defaultlib.project_tb
+Built simulation snapshot project_tb_func_synth
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Mon Mar  9 18:20:56 2020. For additional details about this file, please refer to the WebTalk help file at D:/Vivado/Vivado/2019.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Mon Mar  9 18:20:56 2020...
+run_program: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1773.598 ; gain = 401.824
+INFO: [USF-XSim-69] 'elaborate' step finished in '11' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/Progetto/ProgettoRetiLogiche/progetto_reti.sim/sim_1/synth/func/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "project_tb_func_synth -key {Post-Synthesis:sim_1:Functional:project_tb} -tclbatch {project_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source project_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: [Wavedata 42-489] Can't add object "/project_tb/RAM" to the wave window because it has 524288 bits, which exceeds the display limit of 65536 bits.  To change the display limit, use the command "set_property display_limit <new limit> [current_wave_config]".
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'project_tb_func_synth' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:44 ; elapsed = 00:00:31 . Memory (MB): peak = 1873.148 ; gain = 1094.258
+run 1s
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1903.785 ; gain = 0.422
+INFO: [Common 17-344] 'run' was cancelled
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 2092.301 ; gain = 0.000
 exit
-INFO: [Common 17-206] Exiting Vivado at Tue Feb 11 17:09:47 2020...
+INFO: [Common 17-206] Exiting Vivado at Mon Mar  9 18:28:51 2020...
