@@ -17,18 +17,19 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_msg_config -id {Common 17-41} -limit 10000000
 create_project -in_memory -part xc7a200tfbg484-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir D:/Progetto/ProgettoRetiLogiche/progetto_reti.cache/wt [current_project]
-set_property parent.project_path D:/Progetto/ProgettoRetiLogiche/progetto_reti.xpr [current_project]
+set_property webtalk.parent_dir D:/Dynamis/ProgettoRetiLogiche/progetto_reti.cache/wt [current_project]
+set_property parent.project_path D:/Dynamis/ProgettoRetiLogiche/progetto_reti.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo d:/Progetto/ProgettoRetiLogiche/progetto_reti.cache/ip [current_project]
+set_property ip_output_repo d:/Dynamis/ProgettoRetiLogiche/progetto_reti.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_vhdl -library xil_defaultlib D:/Progetto/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd
+read_vhdl -library xil_defaultlib D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be

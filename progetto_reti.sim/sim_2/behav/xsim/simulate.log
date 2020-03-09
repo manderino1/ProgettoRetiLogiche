@@ -1,8 +1,8 @@
 Vivado Simulator 2019.2
 Time resolution is 1 ps
 Failure: Simulation Ended!, TEST 1 PASSATO
-Time: 2050 ns  Iteration: 0  Process: /project_tb/test  File: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_2/imports/Desktop/multi_reset.vhd
-$finish called at time : 2050 ns : File "D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_2/imports/Desktop/multi_reset.vhd" Line 137
+Time: 2150 ns  Iteration: 0  Process: /project_tb/test  File: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_2/imports/Desktop/multi_reset.vhd
+$finish called at time : 2150 ns : File "D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_2/imports/Desktop/multi_reset.vhd" Line 137
 Failure: Simulation Ended!, TEST 2 PASSATO
-Time: 4050 ns  Iteration: 0  Process: /project_tb/test  File: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_2/imports/Desktop/multi_reset.vhd
-$finish called at time : 4050 ns : File "D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_2/imports/Desktop/multi_reset.vhd" Line 158
+Time: 4250 ns  Iteration: 0  Process: /project_tb/test  File: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_2/imports/Desktop/multi_reset.vhd
+$finish called at time : 4250 ns : File "D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_2/imports/Desktop/multi_reset.vhd" Line 158

@@ -28,7 +28,7 @@ signal RAM: ram_type := (0 => std_logic_vector(to_unsigned( 4 , 8)),
                          5 => std_logic_vector(to_unsigned( 45 , 8)),
                          6 => std_logic_vector(to_unsigned( 77 , 8)),
                          7 => std_logic_vector(to_unsigned( 127 , 8)),
-                         8 => std_logic_vector(to_unsigned( 1 , 8)),
+                         8 => std_logic_vector(to_unsigned( 2 , 8)),
 			 others => (others =>'0'));
 
 component project_reti_logiche is
@@ -85,6 +85,7 @@ end process;
 test : process is
 begin 
     wait for 100 ns;
+    tb_rst <= '1';
     wait for c_CLOCK_PERIOD;
     tb_rst <= '0';
     wait for c_CLOCK_PERIOD;
