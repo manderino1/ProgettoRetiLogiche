@@ -14,29 +14,29 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16040 
+INFO: Helper process launched with PID 2220 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 505.582 ; gain = 207.367
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 506.527 ; gain = 208.180
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'project_reti_logiche' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:46]
+WARNING: [Synth 8-614] signal 'wz_data' is read in the process but is not in the sensitivity list [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:87]
+WARNING: [Synth 8-614] signal 'wz_data' is read in the process but is not in the sensitivity list [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:167]
 INFO: [Synth 8-256] done synthesizing module 'project_reti_logiche' (1#1) [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:46]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 578.961 ; gain = 280.746
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 579.684 ; gain = 281.336
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 578.961 ; gain = 280.746
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 579.684 ; gain = 281.336
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tfbg484-1
 ---------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7a200tfbg484-1
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 578.961 ; gain = 280.746
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 579.684 ; gain = 281.336
 ---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a200tfbg484-1
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'project_reti_logiche'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:70]
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:70]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -59,21 +59,8 @@ WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' 
            wait_for_done |                10000000000000000 |                            01000
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'project_reti_logiche'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:70]
-WARNING: [Synth 8-327] inferring latch for variable 'o_address_next_reg' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:78]
-WARNING: [Synth 8-327] inferring latch for variable 'o_done_next_reg' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:75]
-WARNING: [Synth 8-327] inferring latch for variable 'wb_addresses_next_reg[7]' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:72]
-WARNING: [Synth 8-327] inferring latch for variable 'wb_addresses_next_reg[6]' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:72]
-WARNING: [Synth 8-327] inferring latch for variable 'wb_addresses_next_reg[5]' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:72]
-WARNING: [Synth 8-327] inferring latch for variable 'wb_addresses_next_reg[4]' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:72]
-WARNING: [Synth 8-327] inferring latch for variable 'wb_addresses_next_reg[3]' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:72]
-WARNING: [Synth 8-327] inferring latch for variable 'wb_addresses_next_reg[2]' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:72]
-WARNING: [Synth 8-327] inferring latch for variable 'wb_addresses_next_reg[1]' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:72]
-WARNING: [Synth 8-327] inferring latch for variable 'wb_addresses_next_reg[0]' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:72]
-WARNING: [Synth 8-327] inferring latch for variable 'o_data_next_reg' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:79]
-WARNING: [Synth 8-327] inferring latch for variable 'wz_result_reg' [D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sources_1/new/main.vhd:133]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 578.961 ; gain = 280.746
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 579.684 ; gain = 281.336
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -90,16 +77,16 @@ Detailed RTL Component Info :
 	   3 Input      8 Bit       Adders := 8     
 +---Registers : 
 	               16 Bit    Registers := 1     
-	                8 Bit    Registers := 9     
+	                8 Bit    Registers := 10    
 	                1 Bit    Registers := 3     
 +---Muxes : 
 	  17 Input     17 Bit        Muxes := 1     
 	   2 Input     17 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 2     
-	  17 Input      5 Bit        Muxes := 2     
+	  17 Input     16 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
 	   8 Input      1 Bit        Muxes := 2     
-	  17 Input      1 Bit        Muxes := 6     
-	   2 Input      1 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 1     
+	  17 Input      1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -113,16 +100,16 @@ Detailed RTL Component Info :
 	   3 Input      8 Bit       Adders := 8     
 +---Registers : 
 	               16 Bit    Registers := 1     
-	                8 Bit    Registers := 9     
+	                8 Bit    Registers := 10    
 	                1 Bit    Registers := 3     
 +---Muxes : 
 	  17 Input     17 Bit        Muxes := 1     
 	   2 Input     17 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 2     
-	  17 Input      5 Bit        Muxes := 2     
+	  17 Input     16 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
 	   8 Input      1 Bit        Muxes := 2     
-	  17 Input      1 Bit        Muxes := 6     
-	   2 Input      1 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 1     
+	  17 Input      1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -140,18 +127,6 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-3886] merging instance 'o_address_next_reg[4]' (LD) to 'o_address_next_reg[15]'
-INFO: [Synth 8-3886] merging instance 'o_address_next_reg[5]' (LD) to 'o_address_next_reg[15]'
-INFO: [Synth 8-3886] merging instance 'o_address_next_reg[6]' (LD) to 'o_address_next_reg[15]'
-INFO: [Synth 8-3886] merging instance 'o_address_next_reg[7]' (LD) to 'o_address_next_reg[15]'
-INFO: [Synth 8-3886] merging instance 'o_address_next_reg[8]' (LD) to 'o_address_next_reg[15]'
-INFO: [Synth 8-3886] merging instance 'o_address_next_reg[9]' (LD) to 'o_address_next_reg[15]'
-INFO: [Synth 8-3886] merging instance 'o_address_next_reg[10]' (LD) to 'o_address_next_reg[15]'
-INFO: [Synth 8-3886] merging instance 'o_address_next_reg[11]' (LD) to 'o_address_next_reg[15]'
-INFO: [Synth 8-3886] merging instance 'o_address_next_reg[12]' (LD) to 'o_address_next_reg[15]'
-INFO: [Synth 8-3886] merging instance 'o_address_next_reg[13]' (LD) to 'o_address_next_reg[15]'
-INFO: [Synth 8-3886] merging instance 'o_address_next_reg[14]' (LD) to 'o_address_next_reg[15]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\o_address_next_reg[15] )
 INFO: [Synth 8-3886] merging instance 'o_address_reg[4]' (FDE) to 'o_address_reg[15]'
 INFO: [Synth 8-3886] merging instance 'o_address_reg[5]' (FDE) to 'o_address_reg[15]'
 INFO: [Synth 8-3886] merging instance 'o_address_reg[6]' (FDE) to 'o_address_reg[15]'
@@ -164,9 +139,8 @@ INFO: [Synth 8-3886] merging instance 'o_address_reg[12]' (FDE) to 'o_address_re
 INFO: [Synth 8-3886] merging instance 'o_address_reg[13]' (FDE) to 'o_address_reg[15]'
 INFO: [Synth 8-3886] merging instance 'o_address_reg[14]' (FDE) to 'o_address_reg[15]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\o_address_reg[15] )
-WARNING: [Synth 8-3332] Sequential element (o_address_next_reg[15]) is unused and will be removed from module project_reti_logiche.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 797.621 ; gain = 499.406
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 787.730 ; gain = 489.383
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -179,7 +153,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 804.777 ; gain = 506.563
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 794.934 ; gain = 496.586
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -191,7 +165,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 804.777 ; gain = 506.563
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 795.113 ; gain = 496.766
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -215,13 +189,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 804.777 ; gain = 506.563
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 795.113 ; gain = 496.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 804.777 ; gain = 506.563
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 795.113 ; gain = 496.766
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -240,25 +214,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 804.777 ; gain = 506.563
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 795.113 ; gain = 496.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 804.777 ; gain = 506.563
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 795.113 ; gain = 496.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 804.777 ; gain = 506.563
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 795.113 ; gain = 496.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 804.777 ; gain = 506.563
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 795.113 ; gain = 496.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -276,50 +250,48 @@ Report Cell Usage:
 +------+-------+------+
 |1     |BUFG   |     1|
 |2     |CARRY4 |    16|
-|3     |LUT1   |     2|
-|4     |LUT2   |    70|
-|5     |LUT3   |     7|
-|6     |LUT4   |     9|
-|7     |LUT5   |     7|
-|8     |LUT6   |    23|
+|3     |LUT1   |     1|
+|4     |LUT2   |    77|
+|5     |LUT3   |     4|
+|6     |LUT4   |     6|
+|7     |LUT5   |     5|
+|8     |LUT6   |    35|
 |9     |FDCE   |    17|
 |10    |FDPE   |     2|
-|11    |FDRE   |    77|
-|12    |LD     |    97|
-|13    |IBUF   |    11|
-|14    |OBUF   |    27|
+|11    |FDRE   |    85|
+|12    |IBUF   |    11|
+|13    |OBUF   |    27|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   366|
+|1     |top      |       |   287|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 804.777 ; gain = 506.563
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 795.113 ; gain = 496.766
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 16 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 804.777 ; gain = 506.563
-Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 804.777 ; gain = 506.563
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 795.113 ; gain = 496.766
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 795.113 ; gain = 496.766
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 816.926 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 113 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 807.082 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 898.379 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 899.609 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 97 instances were transformed.
-  LD => LDCE: 97 instances
+No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-37 Infos, 16 Warnings, 0 Critical Warnings and 0 Errors encountered.
+25 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 898.379 ; gain = 600.164
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 898.379 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 899.609 ; gain = 601.262
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 899.609 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/Dynamis/ProgettoRetiLogiche/progetto_reti.runs/synth_1/project_reti_logiche.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file project_reti_logiche_utilization_synth.rpt -pb project_reti_logiche_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Mar  9 23:42:51 2020...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 10 11:25:03 2020...

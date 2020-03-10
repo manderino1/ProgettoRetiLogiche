@@ -57,6 +57,8 @@ architecture Behavioral of project_reti_logiche is
     signal o_done_next, o_en_next, o_we_next : STD_LOGIC;
     signal o_address_next : STD_LOGIC_VECTOR(15 downto 0);
     signal o_data_next : STD_LOGIC_VECTOR(7 downto 0);
+   
+    signal wz_data, wz_data_next : STD_LOGIC_VECTOR(7 downto 0);
 begin
 
     reset: process(i_clk, i_rst)
@@ -77,15 +79,21 @@ begin
             o_we <= o_we_next;
             o_address <= o_address_next;
             o_data <= o_data_next;
+            
+            wz_data <= wz_data_next;
         end if;
     end process;
     
     lambda: process(current_state, i_start, i_data, wb_addresses)
-    variable sub_result : NATURAL;
-    variable wz_result : STD_LOGIC_VECTOR(2 downto 0);
+    variable found : STD_LOGIC;
     variable one_hot : STD_LOGIC_VECTOR(3 downto 0);
-    variable wz_bit : STD_LOGIC;	
+    variable sub : NATURAL;
     begin
+        next_state <= current_state;
+        wz_data_next <= wz_data;
+        for i in 0 to 7 loop
+            wb_addresses_next(i) <= wb_addresses(i);
+        end loop;
         case current_state is
             when read_wb0 =>
                 next_state <= wait_wb;
@@ -125,21 +133,19 @@ begin
                 next_state <= process_addr;
             when process_addr =>
                 -- Here we check if in wz and then publish the output
-                wz_bit := '0';
-                for i in 0 to 7 loop                    
-                    sub_result := to_integer(UNSIGNED(i_data) - UNSIGNED(wb_addresses(i)));
-                    if sub_result < 4 then
-                        wz_bit := '1';
-                        wz_result := STD_LOGIC_VECTOR(to_unsigned(i, 3));
+                found := '0';
+                for i in 0 to 7 loop
+                    sub := to_integer(UNSIGNED(i_data) - UNSIGNED(wb_addresses(i)));
+                    if sub < 4 then
+                        one_hot := (others => '0');
+                        one_hot(sub) := '1';
+                        wz_data_next <= '1' & STD_LOGIC_VECTOR(to_unsigned(i,3)) & one_hot;
+                        found := '1';
                         exit;
                     end if;
                 end loop;
-                if wz_bit = '0' then
-                    o_data_next <= wz_bit & i_data(6 downto 0);
-                else
-                    one_hot := (others => '0');
-                    one_hot(sub_result) := '1';
-                    o_data_next <= wz_bit & wz_result & one_hot;
+                if found = '0' then
+                    wz_data_next <= '0' & i_data(6 downto 0);
                 end if;
                 -- OUT
                 next_state <= write_addr;
@@ -160,6 +166,8 @@ begin
     
     delta: process(current_state)
     begin
+        o_done_next <= '0';
+        o_data_next <= wz_data;
         case current_state is
             when read_wb0 =>
                 o_en_next <= '1';
@@ -200,6 +208,7 @@ begin
             when store_wb7 =>
                 o_en_next <= '1';
                 o_we_next <= '0';
+                o_address_next <= "0000000000001000";
             when read_addr =>
                 o_en_next <= '1';
                 o_we_next <= '0';
@@ -211,21 +220,25 @@ begin
             when process_addr =>
                 o_en_next <= '0';
                 o_we_next <= '0';
+                o_address_next <= "0000000000001000";
             when write_addr =>
+                o_data_next <= wz_data;
                 o_en_next <= '1';
-                o_we_next <= '1';
                 o_address_next <= "0000000000001001";
+                o_we_next <= '1';
             when set_done =>
                 o_en_next <= '0';
                 o_we_next <= '0';
                 o_done_next <= '1';
+                o_address_next <= "0000000000001001";
             when wait_for_done =>
                 o_en_next <= '0';
                 o_we_next <= '0';
+                o_address_next <= "0000000000001000";
             when wait_for_start =>
-                o_done_next <= '0';
                 o_en_next <= '0';
                 o_we_next <= '0';
+                o_address_next <= "0000000000001000";
         end case;
     end process;
 end Behavioral;
