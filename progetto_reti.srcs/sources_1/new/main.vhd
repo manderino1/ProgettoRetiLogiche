@@ -44,7 +44,7 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
-    type STATE_TYPE is (wait_addr, read_addr, process_addr, wait_for_start, write_addr, set_done, read_wb0, wait_for_done, 
+    type STATE_TYPE is (read_addr, process_addr, wait_for_start, write_addr, set_done, read_wb0, wait_for_done, 
         store_wb0_load_wb1, store_wb1_load_wb2, store_wb2_load_wb3, 
         store_wb3_load_wb4, store_wb4_load_wb5, store_wb5_load_wb6, store_wb6_load_wb7, store_wb7);  -- Define here the list of the states
     
@@ -114,8 +114,6 @@ begin
                     next_state <= wait_for_start;
                 end if;
             when read_addr =>
-                next_state <= wait_addr;
-            when wait_addr =>
                 next_state <= process_addr;
             when process_addr =>
                 -- Here we check if in wz and then publish the output
@@ -195,10 +193,6 @@ begin
                 o_address <= "0000000000001000";
             when read_addr =>
                 o_en <= '1';
-                o_we <= '0';
-                o_address <= "0000000000001000";
-            when wait_addr =>
-                o_en <= '0';
                 o_we <= '0';
                 o_address <= "0000000000001000";
             when process_addr =>
