@@ -44,7 +44,7 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
-    type STATE_TYPE is (wait_wb, wait_addr, read_addr, process_addr, wait_for_start, write_addr, set_done, read_wb0, wait_for_done, 
+    type STATE_TYPE is (wait_addr, read_addr, process_addr, wait_for_start, write_addr, set_done, read_wb0, wait_for_done, 
         store_wb0_load_wb1, store_wb1_load_wb2, store_wb2_load_wb3, 
         store_wb3_load_wb4, store_wb4_load_wb5, store_wb5_load_wb6, store_wb6_load_wb7, store_wb7);  -- Define here the list of the states
     
@@ -53,10 +53,6 @@ architecture Behavioral of project_reti_logiche is
 	type WB_ADDR_ARRAY is array (7 downto 0) of STD_LOGIC_VECTOR(7 downto 0);
 	signal wb_addresses : WB_ADDR_ARRAY;
 	signal wb_addresses_next : WB_ADDR_ARRAY;
-	
-    signal o_done_next, o_en_next, o_we_next : STD_LOGIC;
-    signal o_address_next : STD_LOGIC_VECTOR(15 downto 0);
-    signal o_data_next : STD_LOGIC_VECTOR(7 downto 0);
    
     signal wz_data, wz_data_next : STD_LOGIC_VECTOR(7 downto 0);
 begin
@@ -66,25 +62,17 @@ begin
         if i_rst = '1' then
             -- Reset all the port and signals to default state
             current_state <= read_wb0; -- Start loading of wb addresses
-            o_done <= '0';
-            o_en <= '1';
         elsif rising_edge(i_clk) then
             current_state <= next_state;
             for i in 0 to 7 loop
                 wb_addresses(i) <= wb_addresses_next(i);
             end loop;
-            
-            o_done <= o_done_next;
-            o_en <= o_en_next;
-            o_we <= o_we_next;
-            o_address <= o_address_next;
-            o_data <= o_data_next;
-            
+              
             wz_data <= wz_data_next;
         end if;
     end process;
     
-    lambda: process(current_state, i_start, i_data, wb_addresses)
+    lambda: process(current_state, i_start, i_data, wb_addresses, wz_data)
     variable found : STD_LOGIC;
     variable one_hot : STD_LOGIC_VECTOR(3 downto 0);
     variable sub : NATURAL;
@@ -96,8 +84,6 @@ begin
         end loop;
         case current_state is
             when read_wb0 =>
-                next_state <= wait_wb;
-            when wait_wb =>
                 next_state <= store_wb0_load_wb1;
             when store_wb0_load_wb1 =>
                 wb_addresses_next(0) <= i_data;
@@ -164,81 +150,78 @@ begin
         end case;
     end process;
     
-    delta: process(current_state)
+    delta: process(current_state, wz_data)
     begin
-        o_done_next <= '0';
-        o_data_next <= wz_data;
+        o_data <= wz_data;
+        o_en <= '0';
+        o_we <= '0';
+        o_done <= '0';
         case current_state is
             when read_wb0 =>
-                o_en_next <= '1';
-                o_we_next <= '0';
-                o_address_next <= "0000000000000000";
-            when wait_wb =>
-                o_en_next <= '1';
-                o_we_next <= '0';
-                o_address_next <= "0000000000000001";
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000000";
             when store_wb0_load_wb1 =>
-                o_en_next <= '1';
-                o_we_next <= '0';
-                o_address_next <= "0000000000000010";
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000001";
             when store_wb1_load_wb2 =>
-                o_en_next <= '1';
-                o_we_next <= '0';
-                o_address_next <= "0000000000000011";
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000010";
             when store_wb2_load_wb3 =>
-                o_en_next <= '1';
-                o_we_next <= '0';
-                o_address_next <= "0000000000000100";
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000011";
             when store_wb3_load_wb4 =>
-                o_en_next <= '1';
-                o_we_next <= '0';
-                o_address_next <= "0000000000000101";
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000100";
             when store_wb4_load_wb5 =>
-                o_en_next <= '1';
-                o_we_next <= '0';
-                o_address_next <= "0000000000000110";
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000101";
             when store_wb5_load_wb6 =>
-                o_en_next <= '1';
-                o_we_next <= '0';
-                o_address_next <= "0000000000000111";
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000110";
             when store_wb6_load_wb7 =>
-                o_en_next <= '1';
-                o_we_next <= '0';
-                o_address_next <= "0000000000001000";
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000111";
             when store_wb7 =>
-                o_en_next <= '1';
-                o_we_next <= '0';
-                o_address_next <= "0000000000001000";
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000001000";
             when read_addr =>
-                o_en_next <= '1';
-                o_we_next <= '0';
-                o_address_next <= "0000000000001000";
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000001000";
             when wait_addr =>
-                o_en_next <= '0';
-                o_we_next <= '0';
-                o_address_next <= "0000000000001000";
+                o_en <= '0';
+                o_we <= '0';
+                o_address <= "0000000000001000";
             when process_addr =>
-                o_en_next <= '0';
-                o_we_next <= '0';
-                o_address_next <= "0000000000001000";
+                o_en <= '0';
+                o_we <= '0';
+                o_address <= "0000000000001000";
             when write_addr =>
-                o_data_next <= wz_data;
-                o_en_next <= '1';
-                o_address_next <= "0000000000001001";
-                o_we_next <= '1';
+                o_en <= '1';
+                o_address <= "0000000000001001";
+                o_we <= '1';
             when set_done =>
-                o_en_next <= '0';
-                o_we_next <= '0';
-                o_done_next <= '1';
-                o_address_next <= "0000000000001001";
+                o_en <= '0';
+                o_we <= '0';
+                o_done <= '1';
+                o_address <= "0000000000001001";
             when wait_for_done =>
-                o_en_next <= '0';
-                o_we_next <= '0';
-                o_address_next <= "0000000000001000";
+                o_en <= '0';
+                o_we <= '0';
+                o_address <= "0000000000001000";
             when wait_for_start =>
-                o_en_next <= '0';
-                o_we_next <= '0';
-                o_address_next <= "0000000000001000";
+                o_en <= '0';
+                o_we <= '0';
+                o_address <= "0000000000001000";
         end case;
     end process;
 end Behavioral;
