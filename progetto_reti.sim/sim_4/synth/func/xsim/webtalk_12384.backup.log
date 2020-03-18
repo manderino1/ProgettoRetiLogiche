@@ -2,11 +2,13 @@
 # Webtalk v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Wed Mar 11 19:44:10 2020
-# Process ID: 5704
+# Start of session at: Wed Mar 11 19:34:27 2020
+# Process ID: 12384
 # Current directory: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_4/synth/func/xsim
 # Command line: wbtcv.exe -mode batch -source D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_4/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/xsim_webtalk.tcl -notrace
 # Log file: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_4/synth/func/xsim/webtalk.log
 # Journal file: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_4/synth/func/xsim\webtalk.jou
 #-----------------------------------------------------------
 source D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_4/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_4/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Wed Mar 11 19:34:32 2020. For additional details about this file, please refer to the WebTalk help file at D:/Programmi/Xilinx/Vivado/2019.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Wed Mar 11 19:34:32 2020...

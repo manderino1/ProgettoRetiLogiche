@@ -211,6 +211,7 @@ begin
             when wait_for_done =>
                 o_en <= '0';
                 o_we <= '0';
+                o_done <= '1';
                 o_address <= "0000000000001000";
             when wait_for_start =>
                 o_en <= '0';
