@@ -1,0 +1,5 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+Failure: TEST FALLITO. Expected  2  found 129
+Time: 1750 ns  Iteration: 2  Process: /project_tb/test  File: D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_1/imports/Dynamis/Test Bench 2 - Prj 2019-20.vhd
+$finish called at time : 1750 ns : File "D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_1/imports/Dynamis/Test Bench 2 - Prj 2019-20.vhd" Line 102
