@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"project_tb_func_impl.vhd" \
+"../../../../../progetto_reti.srcs/sim_2/imports/Desktop/multi_reset.vhd" \
+
+# Do not sort compile order
+nosort

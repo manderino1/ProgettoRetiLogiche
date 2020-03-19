@@ -28,7 +28,7 @@ signal RAM: ram_type := (0 => std_logic_vector(to_unsigned( 4 , 8)),
                          5 => std_logic_vector(to_unsigned( 45 , 8)),
                          6 => std_logic_vector(to_unsigned( 77 , 8)),
                          7 => std_logic_vector(to_unsigned( 127 , 8)),
-                         8 => std_logic_vector(to_unsigned( 4 , 8)),
+                         8 => std_logic_vector(to_unsigned( 2 , 8)),
 			 others => (others =>'0'));
 
 component project_reti_logiche is

@@ -1,7 +1,7 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
--- Date        : Tue Mar 10 12:03:16 2020
+-- Date        : Thu Mar 19 14:49:59 2020
 -- Host        : DESKTOP-4GTPJBL running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -mode funcsim -nolib -force -file
 --               D:/Dynamis/ProgettoRetiLogiche/progetto_reti.sim/sim_3/synth/func/xsim/project_tb_func_synth.vhd
@@ -34,11 +34,11 @@ architecture STRUCTURE of project_reti_logiche is
   signal \FSM_onehot_current_state[10]_i_1_n_0\ : STD_LOGIC;
   signal \FSM_onehot_current_state[14]_i_1_n_0\ : STD_LOGIC;
   signal \FSM_onehot_current_state[14]_i_2_n_0\ : STD_LOGIC;
-  signal \FSM_onehot_current_state[14]_i_3_n_0\ : STD_LOGIC;
   signal \FSM_onehot_current_state[9]_i_1_n_0\ : STD_LOGIC;
   signal \FSM_onehot_current_state_reg_n_0_[0]\ : STD_LOGIC;
   signal \FSM_onehot_current_state_reg_n_0_[10]\ : STD_LOGIC;
   signal \FSM_onehot_current_state_reg_n_0_[11]\ : STD_LOGIC;
+  signal \FSM_onehot_current_state_reg_n_0_[13]\ : STD_LOGIC;
   signal \FSM_onehot_current_state_reg_n_0_[14]\ : STD_LOGIC;
   signal \FSM_onehot_current_state_reg_n_0_[9]\ : STD_LOGIC;
   signal found10_out : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -257,9 +257,8 @@ architecture STRUCTURE of project_reti_logiche is
   signal \NLW_wz_data_reg[7]_i_44_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_wz_data_reg[7]_i_9_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \FSM_onehot_current_state[10]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \FSM_onehot_current_state[14]_i_3\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \FSM_onehot_current_state[9]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \FSM_onehot_current_state[10]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \FSM_onehot_current_state[9]_i_1\ : label is "soft_lutpair4";
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[0]\ : label is "write_addr:001000000000000,set_done:010000000000000,store_wb6_load_wb7:000000010000000,wait_for_start:000001000000000,store_wb5_load_wb6:000000001000000,store_wb4_load_wb5:000000000100000,store_wb3_load_wb4:000000000010000,process_addr:000100000000000,read_addr:000010000000000,store_wb2_load_wb3:000000000001000,store_wb0_load_wb1:000000000000010,wait_for_done:100000000000000,store_wb1_load_wb2:000000000000100,store_wb7:000000100000000,read_wb0:000000000000001";
   attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[10]\ : label is "write_addr:001000000000000,set_done:010000000000000,store_wb6_load_wb7:000000010000000,wait_for_start:000001000000000,store_wb5_load_wb6:000000001000000,store_wb4_load_wb5:000000000100000,store_wb3_load_wb4:000000000010000,process_addr:000100000000000,read_addr:000010000000000,store_wb2_load_wb3:000000000001000,store_wb0_load_wb1:000000000000010,wait_for_done:100000000000000,store_wb1_load_wb2:000000000000100,store_wb7:000000100000000,read_wb0:000000000000001";
@@ -276,13 +275,16 @@ architecture STRUCTURE of project_reti_logiche is
   attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[7]\ : label is "write_addr:001000000000000,set_done:010000000000000,store_wb6_load_wb7:000000010000000,wait_for_start:000001000000000,store_wb5_load_wb6:000000001000000,store_wb4_load_wb5:000000000100000,store_wb3_load_wb4:000000000010000,process_addr:000100000000000,read_addr:000010000000000,store_wb2_load_wb3:000000000001000,store_wb0_load_wb1:000000000000010,wait_for_done:100000000000000,store_wb1_load_wb2:000000000000100,store_wb7:000000100000000,read_wb0:000000000000001";
   attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[8]\ : label is "write_addr:001000000000000,set_done:010000000000000,store_wb6_load_wb7:000000010000000,wait_for_start:000001000000000,store_wb5_load_wb6:000000001000000,store_wb4_load_wb5:000000000100000,store_wb3_load_wb4:000000000010000,process_addr:000100000000000,read_addr:000010000000000,store_wb2_load_wb3:000000000001000,store_wb0_load_wb1:000000000000010,wait_for_done:100000000000000,store_wb1_load_wb2:000000000000100,store_wb7:000000100000000,read_wb0:000000000000001";
   attribute FSM_ENCODED_STATES of \FSM_onehot_current_state_reg[9]\ : label is "write_addr:001000000000000,set_done:010000000000000,store_wb6_load_wb7:000000010000000,wait_for_start:000001000000000,store_wb5_load_wb6:000000001000000,store_wb4_load_wb5:000000000100000,store_wb3_load_wb4:000000000010000,process_addr:000100000000000,read_addr:000010000000000,store_wb2_load_wb3:000000000001000,store_wb0_load_wb1:000000000000010,wait_for_done:100000000000000,store_wb1_load_wb2:000000000000100,store_wb7:000000100000000,read_wb0:000000000000001";
-  attribute SOFT_HLUTNM of \o_address_OBUF[3]_inst_i_2\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \wz_data[4]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \wz_data[6]_i_2\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \o_address_OBUF[3]_inst_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \o_address_OBUF[3]_inst_i_2\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of o_done_OBUF_inst_i_1 : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of o_en_OBUF_inst_i_2 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \wz_data[4]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \wz_data[6]_i_2\ : label is "soft_lutpair5";
   attribute SOFT_HLUTNM of \wz_data[6]_i_3\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \wz_data[7]_i_2\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \wz_data[7]_i_3\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \wz_data[7]_i_7\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \wz_data[7]_i_3\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \wz_data[7]_i_7\ : label is "soft_lutpair5";
 begin
 \FSM_onehot_current_state[10]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -294,39 +296,30 @@ begin
       I2 => \wb_addresses_next[7]\,
       O => \FSM_onehot_current_state[10]_i_1_n_0\
     );
-\FSM_onehot_current_state[14]_i_1\: unisim.vcomponents.LUT5
+\FSM_onehot_current_state[14]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => o_en_OBUF_inst_i_2_n_0,
+      I0 => o_address_OBUF(2),
       I1 => \FSM_onehot_current_state[14]_i_2_n_0\,
-      I2 => \FSM_onehot_current_state_reg_n_0_[10]\,
-      I3 => \FSM_onehot_current_state_reg_n_0_[0]\,
+      I2 => \FSM_onehot_current_state_reg_n_0_[0]\,
+      I3 => \FSM_onehot_current_state_reg_n_0_[13]\,
       I4 => \wb_addresses_next[0]\,
+      I5 => \o_address_OBUF[3]_inst_i_2_n_0\,
       O => \FSM_onehot_current_state[14]_i_1_n_0\
     );
-\FSM_onehot_current_state[14]_i_2\: unisim.vcomponents.LUT6
+\FSM_onehot_current_state[14]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFFFEFEFFEE"
+      INIT => X"FFFEEEFE"
     )
         port map (
-      I0 => \FSM_onehot_current_state_reg_n_0_[11]\,
-      I1 => o_done_OBUF,
-      I2 => \FSM_onehot_current_state_reg_n_0_[9]\,
-      I3 => \FSM_onehot_current_state_reg_n_0_[14]\,
-      I4 => i_start_IBUF,
-      I5 => \FSM_onehot_current_state[14]_i_3_n_0\,
+      I0 => \wb_addresses_next[1]\,
+      I1 => \wb_addresses_next[2]\,
+      I2 => \FSM_onehot_current_state_reg_n_0_[14]\,
+      I3 => i_start_IBUF,
+      I4 => \FSM_onehot_current_state_reg_n_0_[9]\,
       O => \FSM_onehot_current_state[14]_i_2_n_0\
-    );
-\FSM_onehot_current_state[14]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"E"
-    )
-        port map (
-      I0 => \wb_addresses_next[7]\,
-      I1 => o_we_OBUF,
-      O => \FSM_onehot_current_state[14]_i_3_n_0\
     );
 \FSM_onehot_current_state[9]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -391,7 +384,7 @@ begin
       CE => \FSM_onehot_current_state[14]_i_1_n_0\,
       CLR => i_rst_IBUF,
       D => o_we_OBUF,
-      Q => o_done_OBUF
+      Q => \FSM_onehot_current_state_reg_n_0_[13]\
     );
 \FSM_onehot_current_state_reg[14]\: unisim.vcomponents.FDCE
     generic map(
@@ -401,7 +394,7 @@ begin
       C => i_clk_IBUF_BUFG,
       CE => \FSM_onehot_current_state[14]_i_1_n_0\,
       CLR => i_rst_IBUF,
-      D => o_done_OBUF,
+      D => \FSM_onehot_current_state_reg_n_0_[13]\,
       Q => \FSM_onehot_current_state_reg_n_0_[14]\
     );
 \FSM_onehot_current_state_reg[1]\: unisim.vcomponents.FDCE
@@ -573,12 +566,12 @@ i_start_IBUF_inst: unisim.vcomponents.IBUF
       INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => o_done_OBUF,
-      I1 => o_we_OBUF,
-      I2 => \wb_addresses_next[2]\,
-      I3 => \wb_addresses_next[0]\,
-      I4 => \wb_addresses_next[6]\,
-      I5 => \wb_addresses_next[4]\,
+      I0 => \FSM_onehot_current_state_reg_n_0_[13]\,
+      I1 => \wb_addresses_next[0]\,
+      I2 => \wb_addresses_next[6]\,
+      I3 => \wb_addresses_next[2]\,
+      I4 => \wb_addresses_next[4]\,
+      I5 => o_we_OBUF,
       O => o_address_OBUF(0)
     );
 \o_address_OBUF[10]_inst\: unisim.vcomponents.OBUF
@@ -621,10 +614,10 @@ i_start_IBUF_inst: unisim.vcomponents.IBUF
       INIT => X"FFFE"
     )
         port map (
-      I0 => \wb_addresses_next[5]\,
-      I1 => \wb_addresses_next[6]\,
-      I2 => \wb_addresses_next[1]\,
-      I3 => \wb_addresses_next[2]\,
+      I0 => \wb_addresses_next[1]\,
+      I1 => \wb_addresses_next[2]\,
+      I2 => \wb_addresses_next[5]\,
+      I3 => \wb_addresses_next[6]\,
       O => o_address_OBUF(1)
     );
 \o_address_OBUF[2]_inst\: unisim.vcomponents.OBUF
@@ -637,10 +630,10 @@ i_start_IBUF_inst: unisim.vcomponents.IBUF
       INIT => X"FFFE"
     )
         port map (
-      I0 => \wb_addresses_next[4]\,
+      I0 => \wb_addresses_next[5]\,
       I1 => \wb_addresses_next[6]\,
       I2 => \wb_addresses_next[3]\,
-      I3 => \wb_addresses_next[5]\,
+      I3 => \wb_addresses_next[4]\,
       O => o_address_OBUF(2)
     );
 \o_address_OBUF[3]_inst\: unisim.vcomponents.OBUF
@@ -648,26 +641,26 @@ i_start_IBUF_inst: unisim.vcomponents.IBUF
       I => o_address_OBUF(3),
       O => o_address(3)
     );
-\o_address_OBUF[3]_inst_i_1\: unisim.vcomponents.LUT6
+\o_address_OBUF[3]_inst_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => \o_address_OBUF[3]_inst_i_2_n_0\,
+      I1 => \FSM_onehot_current_state_reg_n_0_[14]\,
+      I2 => \FSM_onehot_current_state_reg_n_0_[13]\,
+      I3 => \FSM_onehot_current_state_reg_n_0_[9]\,
+      O => o_address_OBUF(3)
+    );
+\o_address_OBUF[3]_inst_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
     )
         port map (
       I0 => \FSM_onehot_current_state_reg_n_0_[11]\,
-      I1 => \FSM_onehot_current_state_reg_n_0_[14]\,
-      I2 => \FSM_onehot_current_state_reg_n_0_[10]\,
-      I3 => \wb_addresses_next[7]\,
-      I4 => \FSM_onehot_current_state_reg_n_0_[9]\,
-      I5 => \o_address_OBUF[3]_inst_i_2_n_0\,
-      O => o_address_OBUF(3)
-    );
-\o_address_OBUF[3]_inst_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"E"
-    )
-        port map (
-      I0 => o_we_OBUF,
-      I1 => o_done_OBUF,
+      I1 => \wb_addresses_next[7]\,
+      I2 => o_we_OBUF,
+      I3 => \FSM_onehot_current_state_reg_n_0_[10]\,
       O => \o_address_OBUF[3]_inst_i_2_n_0\
     );
 \o_address_OBUF[4]_inst\: unisim.vcomponents.OBUF
@@ -745,6 +738,15 @@ o_done_OBUF_inst: unisim.vcomponents.OBUF
       I => o_done_OBUF,
       O => o_done
     );
+o_done_OBUF_inst_i_1: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => \FSM_onehot_current_state_reg_n_0_[14]\,
+      I1 => \FSM_onehot_current_state_reg_n_0_[13]\,
+      O => o_done_OBUF
+    );
 o_en_OBUF_inst: unisim.vcomponents.OBUF
      port map (
       I => o_en_OBUF,
@@ -756,24 +758,21 @@ o_en_OBUF_inst_i_1: unisim.vcomponents.LUT6
     )
         port map (
       I0 => o_en_OBUF_inst_i_2_n_0,
-      I1 => \wb_addresses_next[7]\,
-      I2 => o_we_OBUF,
-      I3 => \FSM_onehot_current_state_reg_n_0_[10]\,
-      I4 => \FSM_onehot_current_state_reg_n_0_[0]\,
-      I5 => \wb_addresses_next[0]\,
+      I1 => \wb_addresses_next[1]\,
+      I2 => \wb_addresses_next[2]\,
+      I3 => \FSM_onehot_current_state_reg_n_0_[0]\,
+      I4 => \wb_addresses_next[0]\,
+      I5 => o_address_OBUF(2),
       O => o_en_OBUF
     );
-o_en_OBUF_inst_i_2: unisim.vcomponents.LUT6
+o_en_OBUF_inst_i_2: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
+      INIT => X"FE"
     )
         port map (
-      I0 => \wb_addresses_next[5]\,
-      I1 => \wb_addresses_next[3]\,
-      I2 => \wb_addresses_next[6]\,
-      I3 => \wb_addresses_next[4]\,
-      I4 => \wb_addresses_next[1]\,
-      I5 => \wb_addresses_next[2]\,
+      I0 => \FSM_onehot_current_state_reg_n_0_[10]\,
+      I1 => o_we_OBUF,
+      I2 => \wb_addresses_next[7]\,
       O => o_en_OBUF_inst_i_2_n_0
     );
 o_we_OBUF_inst: unisim.vcomponents.OBUF

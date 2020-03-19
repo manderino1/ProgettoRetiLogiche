@@ -57,7 +57,7 @@ architecture Behavioral of project_reti_logiche is
     signal wz_data, wz_data_next : STD_LOGIC_VECTOR(7 downto 0);
 begin
 
-    reset: process(i_clk, i_rst)
+    state_reg: process(i_clk, i_rst)
     begin
         if i_rst = '1' then
             -- Reset all the port and signals to default state
