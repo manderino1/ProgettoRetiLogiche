@@ -44,11 +44,12 @@ entity project_reti_logiche is
 end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
-    type STATE_TYPE is (read_addr, process_addr, wait_for_start, write_addr, set_done, read_wb0, wait_for_done, 
-        store_wb0_load_wb1, store_wb1_load_wb2, store_wb2_load_wb3, 
-        store_wb3_load_wb4, store_wb4_load_wb5, store_wb5_load_wb6, store_wb6_load_wb7, store_wb7);  -- Define here the list of the states
+    type STATE_TYPE is (read_addr, process_addr, wait_for_start, write_addr, set_done, wait_for_done, 
+        store_wb0, store_wb1, store_wb2, 
+        store_wb3, store_wb4, store_wb5, store_wb6, store_wb7, load_wb0, load_wb1, load_wb2, load_wb3,
+        load_wb4, load_wb5, load_wb6, load_wb7);  -- Define here the list of the states
     
-	signal current_state, next_state : STATE_TYPE := read_wb0;    -- Signal that contains the current state
+	signal current_state, next_state : STATE_TYPE := load_wb0;    -- Signal that contains the current state
 	
 	type WB_ADDR_ARRAY is array (7 downto 0) of STD_LOGIC_VECTOR(7 downto 0);
 	signal wb_addresses : WB_ADDR_ARRAY;
@@ -61,7 +62,10 @@ begin
     begin
         if i_rst = '1' then
             -- Reset all the port and signals to default state
-            current_state <= read_wb0; -- Start loading of wb addresses
+            current_state <= load_wb0; -- Start loading of wb addresses
+            for i in 0 to 7 loop
+                wb_addresses(i) <= "00000000";
+            end loop;
         elsif rising_edge(i_clk) then
             current_state <= next_state;
             for i in 0 to 7 loop
@@ -83,29 +87,43 @@ begin
             wb_addresses_next(i) <= wb_addresses(i);
         end loop;
         case current_state is
-            when read_wb0 =>
-                next_state <= store_wb0_load_wb1;
-            when store_wb0_load_wb1 =>
+            when load_wb0 =>
+                next_state <= store_wb0;
+            when store_wb0 =>
                 wb_addresses_next(0) <= i_data;
-                next_state <= store_wb1_load_wb2;
-            when store_wb1_load_wb2 =>
+                next_state <= load_wb1;
+            when load_wb1 =>
+                next_state <= store_wb1;
+            when store_wb1 =>
                 wb_addresses_next(1) <= i_data;
-                next_state <= store_wb2_load_wb3;
-            when store_wb2_load_wb3 =>
+                next_state <= load_wb2;    
+            when load_wb2 =>
+                next_state <= store_wb2;
+            when store_wb2 =>
                 wb_addresses_next(2) <= i_data;
-                next_state <= store_wb3_load_wb4;
-            when store_wb3_load_wb4 =>
+                next_state <= load_wb3;
+            when load_wb3 =>
+                next_state <= store_wb3;
+            when store_wb3 =>
                 wb_addresses_next(3) <= i_data;
-                next_state <= store_wb4_load_wb5;
-            when store_wb4_load_wb5 =>
+                next_state <= load_wb4;
+            when load_wb4 =>
+                next_state <= store_wb4;
+            when store_wb4 =>
                 wb_addresses_next(4) <= i_data;
-                next_state <= store_wb5_load_wb6;
-            when store_wb5_load_wb6 =>
+                next_state <= load_wb5;
+            when load_wb5 =>
+                next_state <= store_wb5;
+            when store_wb5 =>
                 wb_addresses_next(5) <= i_data;
-                next_state <= store_wb6_load_wb7;
-            when store_wb6_load_wb7 =>
+                next_state <= load_wb6;
+            when load_wb6 =>
+                next_state <= store_wb6;
+            when store_wb6 =>
                 wb_addresses_next(6) <= i_data;
-                next_state <= store_wb7;
+                next_state <= load_wb7; 
+            when load_wb7 =>
+                next_state <= store_wb7;      
             when store_wb7 =>
                 wb_addresses_next(7) <= i_data;
                 if i_start = '1' then
@@ -155,42 +173,70 @@ begin
         o_we <= '0';
         o_done <= '0';
         case current_state is
-            when read_wb0 =>
+            when load_wb0 =>
                 o_en <= '1';
                 o_we <= '0';
                 o_address <= "0000000000000000";
-            when store_wb0_load_wb1 =>
+            when store_wb0 =>
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000000";
+            when load_wb1 =>
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000001";   
+            when store_wb1 =>
                 o_en <= '1';
                 o_we <= '0';
                 o_address <= "0000000000000001";
-            when store_wb1_load_wb2 =>
+            when load_wb2 =>
                 o_en <= '1';
                 o_we <= '0';
                 o_address <= "0000000000000010";
-            when store_wb2_load_wb3 =>
+            when store_wb2 =>
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000010";
+            when load_wb3 =>
                 o_en <= '1';
                 o_we <= '0';
                 o_address <= "0000000000000011";
-            when store_wb3_load_wb4 =>
+            when store_wb3 =>
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000011";
+            when load_wb4 =>
                 o_en <= '1';
                 o_we <= '0';
                 o_address <= "0000000000000100";
-            when store_wb4_load_wb5 =>
+            when store_wb4 =>
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000100";
+            when load_wb5 =>
                 o_en <= '1';
                 o_we <= '0';
                 o_address <= "0000000000000101";
-            when store_wb5_load_wb6 =>
+            when store_wb5 =>
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000101";
+            when load_wb6 =>
                 o_en <= '1';
                 o_we <= '0';
                 o_address <= "0000000000000110";
-            when store_wb6_load_wb7 =>
+            when store_wb6 =>
+                o_en <= '1';
+                o_we <= '0';
+                o_address <= "0000000000000110";
+            when load_wb7 =>
                 o_en <= '1';
                 o_we <= '0';
                 o_address <= "0000000000000111";
             when store_wb7 =>
                 o_en <= '1';
                 o_we <= '0';
-                o_address <= "0000000000001000";
+                o_address <= "0000000000000111";
             when read_addr =>
                 o_en <= '1';
                 o_we <= '0';

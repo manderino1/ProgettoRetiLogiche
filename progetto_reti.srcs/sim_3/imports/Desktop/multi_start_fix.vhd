@@ -87,24 +87,24 @@ begin
                 case counter is
                     when 1 =>
                         RAM(conv_integer(mem_address))  <= mem_i_data;
-                        mem_o_data                      <= mem_i_data after 1 ns;
+                        mem_o_data                      <= mem_i_data after 1ns;
                     when 2 =>
                         RAM2(conv_integer(mem_address))  <= mem_i_data;
-                        mem_o_data                      <= mem_i_data after 1 ns;
+                        mem_o_data                      <= mem_i_data after 1ns;
                     when others =>
                         report "** Possibile errore counter **";
                         RAM(conv_integer(mem_address))  <= mem_i_data;
-                        mem_o_data                      <= mem_i_data after 1 ns;
+                        mem_o_data                      <= mem_i_data after 1ns;
                 end case;
             else
                 case counter is
                     when 1 =>
-                        mem_o_data <= RAM(conv_integer(mem_address)) after 1 ns;
+                        mem_o_data <= RAM(conv_integer(mem_address)) after 1ns;
                     when 2 =>
-                        mem_o_data <= RAM2(conv_integer(mem_address)) after 1 ns;
+                        mem_o_data <= RAM2(conv_integer(mem_address)) after 1ns;
                     when others =>
                         report "** Possibile errore counter **";
-                        mem_o_data <= RAM(conv_integer(mem_address)) after 1 ns;
+                        mem_o_data <= RAM(conv_integer(mem_address)) after 1ns;
                 end case;
             end if;
         end if;

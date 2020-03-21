@@ -1,2 +1,3 @@
 Vivado Simulator 2019.2
 Time resolution is 1 ps
+$finish called at time : 66000050100 ps : File "D:/Dynamis/ProgettoRetiLogiche/progetto_reti.srcs/sim_4/imports/Auto_300k/testbench.vhd" Line 191
